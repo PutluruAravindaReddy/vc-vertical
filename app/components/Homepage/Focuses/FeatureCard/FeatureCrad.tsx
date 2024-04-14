@@ -1,7 +1,13 @@
 // FeatureCard.js
 import React from 'react';
 
-const FeatureCard = ({ imageUrl, title, description }) => {
+interface FeatureCardProps {
+  imageUrl: string;
+  title: string;
+  description: string;
+}
+
+const FeatureCard: React.FC<FeatureCardProps> = ({ imageUrl, title, description }) => {
   return (
     
   <div className="group flex flex-col h-full border border-base cursor-pointer border-black border-solid shadow-sm rounded-xl overflow-hidden transition duration-300 transform hover:scale-104 hover:shadow-2xl hover:border-[0.1rem] hover:border-black hover:border-gradient hover:border-opacity-100">
