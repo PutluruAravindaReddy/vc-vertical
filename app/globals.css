@@ -2,32 +2,78 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@import url('https://fonts.googleapis.com/css2?family=Protest+Guerrilla&family=Quicksand:wght@300..700&display=swap');
+
+
+@keyframes moveLeftRight {
+
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: translateX(36px);
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.animate-hacktrix {
+  animation: moveLeftRight 5s ease-in-out infinite;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+.animated-cube {
+  width: 24px;
+  height: 24px;
+  background-color: #F54703;
+  animation: spin 5s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotateX(0deg) rotateY(0deg);
+  }
+
+  to {
+    transform: rotateX(360deg) rotateY(360deg);
+  }
+}
+
+.rotating-triangle {
+  position: relative;
+  width: 0;
+  height: 0;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-bottom: 16px solid #F54703;
+  animation: rotateTriangle 3s linear infinite;
+}
+
+@keyframes rotateTriangle {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.rotating-bullet-square {
+  position: relative;
+  width: 12px;
+  height: 12px;
+  background-color: #F54703;
+  animation: rotateSquare 8s linear infinite;
+}
+
+@keyframes rotateSquare {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
   }
 }
