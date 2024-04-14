@@ -1,9 +1,23 @@
 "use client";
 import React from "react";
+import { useEffect, useState } from 'react';
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 export default function NavBar() {
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+      setIsDarkMode(darkModeMediaQuery.matches);
+      const handleChange = (e: { matches: boolean | ((prevState: boolean) => boolean); }) => {
+        setIsDarkMode(e.matches);
+      };
+      darkModeMediaQuery.addEventListener('change', handleChange);
+      return () => darkModeMediaQuery.removeEventListener('change', handleChange);
+    }
+  }, []);
   const pathname = usePathname();
   console.log(pathname);
   return (
@@ -40,37 +54,10 @@ export default function NavBar() {
                 aria-controls="navbar-collapse-with-animation"
                 aria-label="Toggle navigation"
               >
-                <svg
-                  className="hs-collapse-open:hidden flex-shrink-0 size-4"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width={24}
-                  height={24}
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2" // Correct
-                  strokeLinecap="round" // Correct
-                  strokeLinejoin="round" // Correct
-                >
-                  <line x1={3} x2={21} y1={6} y2={6} />
-                  <line x1={3} x2={21} y1={12} y2={12} />
-                  <line x1={3} x2={21} y1={18} y2={18} />
-                </svg>
-                <svg
-                  className="hs-collapse-open:block hidden flex-shrink-0 size-4"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width={24}
-                  height={24}
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2" // Correct
-                  strokeLinecap="round" // Correct
-                  strokeLinejoin="round" // Correct
-                >
-                  <path d="M18 6 6 18" />
-                  <path d="m6 6 12 12" />
-                </svg>
+                              <svg className="rounded-full" width="50" height="50" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="40" height="40" rx="20" fill={isDarkMode ? 'white' : '#253AA0'}/>
+                <path d="M17.75 28.5L26.25 20L17.75 11.5" stroke={isDarkMode ? '#0A0D10' : 'white'} strokeWidth="2.83333" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
               </button>
             </div>
           </div>
@@ -133,7 +120,7 @@ export default function NavBar() {
               <div className="hs-dropdown  [--strategy:static] sm:[--strategy:fixed] [--adaptive:none] sm:[--trigger:hover] sm:py-4">
                 <button
                   type="button"
-                  className={`flex items-center w-full text-black hover:text-gray-500 font-medium ${
+                  className={`flex items-center w-full hover:text-gray-500 font-medium ${
                     pathname === "/VCLAB/Members" || "/VCLAB/Projects" || "/VCLAB/Equipments" || "/VCLAB/Events"
                       ? "text-blue"
                       : "text-black hover:text-gray-500 "

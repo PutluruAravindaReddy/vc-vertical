@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 
-export default function LabMembers() {
+export default function LabFaculty() {
   return (
     <>
       {/* Card Blog */}
