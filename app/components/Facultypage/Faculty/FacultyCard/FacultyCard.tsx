@@ -1,13 +1,21 @@
 import React from "react";
 import Link from "next/link";
 
-export default function FacultyCard({
+interface FacultyCardProps {
+  imageUrl: string;
+  name: string;
+  description: string;
+  role: string;
+  Learnmore:string,
+}
+
+const FacultyCard: React.FC<FacultyCardProps> = ({
   imageUrl,
   name,
   description,
   role,
-  Learnmore,
-}) {
+  Learnmore
+})  =>{
   return (
     <>
       <div className="size-full bg-white shadow-lg rounded-lg p-5 dark:bg-slate-900 hover:scale-105 hover:border-black hover:text-blue hover:border hover:border-solid">
@@ -55,3 +63,5 @@ export default function FacultyCard({
     </>
   );
 }
+
+export default FacultyCard;
