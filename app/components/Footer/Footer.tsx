@@ -122,9 +122,9 @@ export default function Footer() {
                 className=" w-[2.6rem] h-[2.5rem] lg:w-[3rem] lg:h-[3rem] rounded-[50%] "
               />
             </div>
-            <div class="mt-3">
-      {/* <p class="text-gray-500">We're part of the <a class="font-semibold text-blue-600 hover:text-blue-700 dark:text-blue-500 dark:hover:text-blue-400" href="#">Htmlstream</a> family.</p> */}
-      <p class="text-gray-500">© 2024 SRM Institute of Science and Technology. All Rights Reserved.</p>
+            <div className="mt-3">
+      {/* <p className="text-gray-500">We're part of the <a class="font-semibold text-blue-600 hover:text-blue-700 dark:text-blue-500 dark:hover:text-blue-400" href="#">Htmlstream</a> family.</p> */}
+      <p className="text-gray-500">© 2024 SRM Institute of Science and Technology. All Rights Reserved.</p>
     </div>
             <div className=" space-x-2">
               <a
