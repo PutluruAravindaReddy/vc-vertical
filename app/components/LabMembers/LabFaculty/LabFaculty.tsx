@@ -14,13 +14,13 @@ export default function LabFaculty() {
         </h2>
         {/* End Title */}
         {/* Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 ">
           {/* Card 1 */}
           <a
-            className="group border border-transparent rounded-lg overflow-hidden hover:shadow-xl transition duration-300 ease-in-out"
+            className="group border border-transparent  rounded-lg overflow-hidden hover:shadow-xl transition duration-300 ease-in-out"
             href="#"
           >
-            <div className="relative pt-[50%] sm:pt-[70%] rounded-xl overflow-hidden">
+            <div className="relative pt-[50%] sm:pt-[70%] rounded-xl overflow-hidden ">
               <img
                 className="size-full w-[90%] pl-[5%] rounded-2xl absolute top-0 start-0 object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
                 src="/img/faculty/aruna_mam.jpeg"

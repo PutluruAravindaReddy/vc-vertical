@@ -1,5 +1,5 @@
 import React from "react";
-import FacultyCard from "../../Facultypage/Faculty/FacultyCard/FacultyCard";
+import FacultyCard from "./FacultyCard/FacultyCard";
 
 export default function Faculty() {
   const FacultyData = [
