@@ -1,58 +1,57 @@
 "use client";
-import React, { useState } from 'react';
+import React, { useState } from "react";
+// import Image from "next/image";
 
 const Footer = () => {
-  const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
-  const [color, setColor] = useState('');
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [color, setColor] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
     setLoading(true);
 
     try {
       // Send email
-      const sendEmailResponse = await fetch('/api/send', {
-        method: 'POST',
+      const sendEmailResponse = await fetch("/api/send", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({ email }),
       });
 
       const sendEmailResult = await sendEmailResponse.json();
       if (sendEmailResponse.status !== 201) {
-        throw new Error(sendEmailResult.message || 'Error sending email');
+        throw new Error(sendEmailResult.message || "Error sending email");
       }
 
       // Save email
-      const saveEmailResponse = await fetch('/api/subscribe', {
-        method: 'POST',
+      const saveEmailResponse = await fetch("/api/subscribe", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({ email }),
       });
 
       const saveEmailResult = await saveEmailResponse.json();
       if (saveEmailResponse.status !== 202) {
-        throw new Error(saveEmailResult.message || 'Error saving email');
+        throw new Error(saveEmailResult.message || "Error saving email");
       }
 
       // Show success message
-      setMessage('Email sent successfully');
-      setColor('text-green-500');
+      setMessage("Email sent successfully");
+      setColor("text-green-500");
     } catch (error) {
       // Show error message
-      setMessage(`Error: ${error.message}`);
-      setColor('text-red-500');
+      setMessage(`Error: ${error}`);
+      setColor("text-red-500");
     } finally {
       setLoading(false);
     }
   };
-
-
 
   return (
     <>
@@ -78,34 +77,34 @@ const Footer = () => {
                   Wanna Connect with Us?
                 </h4>
                 <form onSubmit={handleSubmit}>
-      <div className="flex flex-row items-start gap-2 sm:flex-row sm:gap-3 bg-black rounded-lg p-2 dark:bg-gray-800">
-        <div className="w-full">
-          <label htmlFor="hero-input" className="sr-only">Email</label>
-          <input
-            type="email"
-            id="hero-input"
-            name="hero-input"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-            className="py-4 px-1 pr-[1rem] md:py-4 md:px-6 md:pr-[7rem] lg:py-4 lg:pl-4 lg:pr-[8rem] bg-black block w-full border-transparent rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none text-white dark:bg-slate-900 dark:border-transparent dark:text-white dark:focus:ring-gray-600"
-            placeholder="Enter your email"
-          />
-          <p className={`text-center ${color}`}>{message}</p>
-        </div>
-        <button
-          type="submit"
-          disabled={loading}
-          className="w-auto whitespace-nowrap px-[1.5rem] py-3 lg:py-3.5 lg:px-[1.9rem] inline-flex justify-center items-top gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-[#188CFF] text-black hover:bg-[#D0DAF5] disabled:opacity-50 disabled:pointer-events-none"
-        >
-          {loading ? 'Sending...' : 'Send'}
-        </button>
-      </div>
-    </form>
+                  <div className="flex flex-row items-start gap-2 sm:flex-row sm:gap-3 bg-black rounded-lg p-2 dark:bg-gray-800">
+                    <div className="w-full">
+                      <label htmlFor="hero-input" className="sr-only">
+                        Email
+                      </label>
+                      <input
+                        type="email"
+                        id="hero-input"
+                        name="hero-input"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        required
+                        className="py-4 px-1 pr-[1rem] md:py-4 md:px-6 md:pr-[7rem] lg:py-4 lg:pl-4 lg:pr-[8rem] bg-black block w-full border-transparent rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none text-white dark:bg-slate-900 dark:border-transparent dark:text-white dark:focus:ring-gray-600"
+                        placeholder="Enter your email"
+                      />
+                      <p className={`text-center ${color}`}>{message}</p>
+                    </div>
+                    <button
+                      type="submit"
+                      disabled={loading}
+                      className="w-auto whitespace-nowrap px-[1.5rem] py-3 lg:py-3.5 lg:px-[1.9rem] inline-flex justify-center items-top gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-[#188CFF] text-black hover:bg-[#D0DAF5] disabled:opacity-50 disabled:pointer-events-none"
+                    >
+                      {loading ? "Sending..." : "Send"}
+                    </button>
+                  </div>
+                </form>
               </div>
-     
             </div>
-                           
           </div>
         </div>
         <div className="flex flex-wrap justify-center mt-10 mb-4">
@@ -241,8 +240,7 @@ const Footer = () => {
       </footer>
     </>
   );
-}
-
+};
 
 // // app/components/Footer/Footer.tsx
 // "use client";
@@ -267,7 +265,7 @@ const Footer = () => {
 //         setMessage('Email sent successfully');
 //         setEmail('');
 //       } else {
-//         const data = await response.json(); 
+//         const data = await response.json();
 //         setMessage(`Failed to send email: ${data.error || response.statusText}`);
 //       }
 //     } catch (error) {
@@ -294,4 +292,3 @@ const Footer = () => {
 // };
 
 export default Footer;
-

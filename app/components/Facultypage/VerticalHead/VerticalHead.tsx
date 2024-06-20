@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 
 export default function VerticalHead() {
@@ -9,7 +10,7 @@ export default function VerticalHead() {
         <div className="flex flex-col sm:flex-row md:items-center">
           {/* End Col */}
           <div className="relative ms-4 max-w-[15rem]">
-            <img
+            <Image
               className="w-full rounded-md"
               src="/img/faculty/Sreedhar_sir.jpg"
               alt="Image Description"
@@ -26,7 +27,7 @@ export default function VerticalHead() {
             <hr className="my-2" />
             <h2 className="text-[0.9rem] mt-2 text-gray-800 font-bold lg:text-[0.9rem] dark:text-white">
               VISUAL COMPUTING VERTICAL{" "}
-              <span class="bg-clip-text bg-gradient-to-tl from-blue to-violet-600 text-transparent">
+              <span className="bg-clip-text bg-gradient-to-tl from-blue to-violet-600 text-transparent">
                 HEAD
               </span>
             </h2>

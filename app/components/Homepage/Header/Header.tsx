@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useState } from 'react';
 import "./HeroSection.css";
+import Image from 'next/image';
 
 export default function Header() {
   const [animate, setAnimate] = useState(false);
@@ -20,7 +21,7 @@ export default function Header() {
           <div className="mt-5 rela max-w-xl text-center mx-auto">
             <h1 className="block font-bold text-gray-800 text-4xl md:text-5xl lg:text-6xl ">
               Visual Computing{" "}
-              <span class="bg-clip-text bg-gradient-to-tl from-blue to-violet-600 text-transparent">
+              <span className="bg-clip-text bg-gradient-to-tl from-blue to-violet-600 text-transparent">
                 Vertical
               </span>
             </h1>
@@ -40,7 +41,7 @@ export default function Header() {
               className="inline-flex justify-center font-bold text-xl items-center gap-x-3 text-center bg-gradient-to-tl from-blue to-violet-600 hover:from-violet-600 hover:to-blue border border-transparent text-black rounded-full py-3 px-4 "
               href="#"
             >
-              <img
+              <Image
                 src="/img/Logo/vc_logo.jpg"
                 alt="Hacktrix-Logo"
                 width={45}

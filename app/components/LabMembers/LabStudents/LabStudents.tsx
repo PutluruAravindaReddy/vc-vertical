@@ -1,7 +1,11 @@
 import React from "react";
 import LabStudentCard from "./LabStudentCard/LabStudentCard";
 
-export default function LabStudents() {
+interface LabStudentsProps {
+  title: string;
+}
+
+const LabStudents: React.FC<LabStudentsProps> = ({ title }) => {
   const first = [
     {
       name: "Akul Abrol",
@@ -513,3 +517,6 @@ export default function LabStudents() {
     </>
   );
 }
+
+
+export default LabStudents;

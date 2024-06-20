@@ -1,8 +1,13 @@
 import React from "react";
 import LabStudents from "../LabStudents";
 
-export default function LabteamCard() {
-  const LabTeamData = [
+interface LabStudentsProps {
+  title: string;
+  // Add more props here if needed
+}
+
+const LabteamCard: React.FC = () => {
+  const LabTeamData: LabStudentsProps[] = [
     {
       title: "HI hello"
     },
@@ -16,3 +21,5 @@ export default function LabteamCard() {
     </>
   );
 }
+
+export default LabteamCard;
