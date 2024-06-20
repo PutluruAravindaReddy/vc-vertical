@@ -726,8 +726,8 @@ export const EmailTemplate = () => (
                                               most importantly about our
                                               clients&rsquo;&nbsp;comfort.&nbsp;
                                               <br />
-                                              With us, it&rsquo;s always "What you see
-                                              is what you get".
+                                              With us, it&rsquo;s always &quot;What you see
+                                              is what you get&quot;.
                                             </p>
                                           </td>
                                         </tr>
