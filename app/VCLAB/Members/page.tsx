@@ -9,7 +9,7 @@ export default function Members(){
         <>
         <NavBar/>
         <LabFaculty/>
-        <LabStudents/>
+        <LabStudents title=''/>
         <Footer/>
         </>
     )
