@@ -128,7 +128,7 @@ const Publications: React.FC = () => {
             className="hs-accordion-toggle group pb-3 inline-flex items-center justify-between gap-x-3 w-full md:text-lg font-semibold text-start text-gray-800 rounded-lg transition hover:text-gray-500 dark:text-neutral-200 dark:hover:text-neutral-400"
             aria-controls="hs-basic-with-title-and-arrow-stretched-collapse-three"
           >
-            How does Preline's pricing work?
+            How does Preline&rsquo;s pricing work?
             <svg
               className="hs-accordion-active:hidden block flex-shrink-0 size-5 text-gray-600 group-hover:text-gray-500 dark:text-neutral-400"
               xmlns="http://www.w3.org/2000/svg"
@@ -263,10 +263,10 @@ const Publications: React.FC = () => {
             aria-labelledby="hs-basic-with-title-and-arrow-stretched-heading-five"
           >
             <p className="text-gray-800 dark:text-neutral-200">
-              If you lose the link for a theme you purchased, don't panic! We've
+              If you lose the link for a theme you purchased, don&rsquo;t panic! We&rsquo;ve
               got you covered. You can login to your account, tap your avatar in
-              the upper right corner, and tap Purchases. If you didn't create a
-              login or can't remember the information, you can use our handy
+              the upper right corner, and tap Purchases. If you didn&rsquo;t create a
+              login or can&rsquo;t remember the information, you can use our handy
               Redownload page, just remember to use the same email you
               originally made your purchases with.
             </p>
