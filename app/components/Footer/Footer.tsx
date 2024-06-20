@@ -1,11 +1,64 @@
-import React from "react";
+"use client";
+import React, { useState } from 'react';
 
-export default function Footer() {
+const Footer = () => {
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
+  const [color, setColor] = useState('');
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    try {
+      // Send email
+      const sendEmailResponse = await fetch('/api/send', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      const sendEmailResult = await sendEmailResponse.json();
+      if (sendEmailResponse.status !== 201) {
+        throw new Error(sendEmailResult.message || 'Error sending email');
+      }
+
+      // Save email
+      const saveEmailResponse = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      const saveEmailResult = await saveEmailResponse.json();
+      if (saveEmailResponse.status !== 202) {
+        throw new Error(saveEmailResult.message || 'Error saving email');
+      }
+
+      // Show success message
+      setMessage('Email sent successfully');
+      setColor('text-green-500');
+    } catch (error) {
+      // Show error message
+      setMessage(`Error: ${error.message}`);
+      setColor('text-red-500');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+
+
   return (
     <>
       {/* ========== FOOTER ========== */}
       <hr />
-      
+
       <footer className="mt-auto bg-gradient-to-tl from-[#EFF6FF] via-[#DBEAFE] to-[#EFF6FF] w-full py-4 px-4 sm:px-6 lg:px-8 mx-auto dark:bg-black">
         {/* <div className="overflow-hidden w-full my-10">
           <div className="marquee flex flex-row">
@@ -16,36 +69,43 @@ export default function Footer() {
             />
           </div>
         </div> */}
-        
+
         <div className="mx-auto bg-[#D0DAF5] w-[85%] md:w-[75%] lg:w-[75%] mt-[1rem] py-[2rem] md:py-[3rem] lg:py-[4rem] rounded-lg">
           <div className="col-span-2">
             <div className="flex justify-center items-center w-[80%] mx-auto">
               <div className="flex flex-col lg:flex-row  justify-between items-center gap-2 w-full">
-                <h4 className=" text-xl pb-3 lg:pb-0 md:pb-0 md:text-2xl lg:text-2xl text-black">Wanna Connect with Us?</h4>
-                <form>
-                  <div className=" flex flex-row items-center gap-2 sm:flex-row sm:gap-3 bg-black rounded-lg p-2 dark:bg-gray-800">
-                    <div className="w-full">
-                      <label htmlFor="hero-input" className="sr-only">
-                        Search
-                      </label>
-                      <input
-                        type="text"
-                        id="hero-input"
-                        name="hero-input"
-                        className="py-4 px-1 pr-[1rem] md:py-4 md:px-6 md:pr-[7rem] lg:py-4 lg:pl-4 lg:pr-[8rem]  bg-black block w-full border-transparent rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none text-white dark:bg-slate-900 dark:border-transparent dark:text-white dark:focus:ring-gray-600"
-                        placeholder="Enter your email"
-                      />
-                    </div>
-                    <a
-                      className=" w-auto  whitespace-nowrap px-[1.5rem] py-3 lg:py-3.5 lg:px-[1.9rem] inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-[#188CFF] text-black hover:bg-[#D0DAF5] disabled:opacity-50 disabled:pointer-events-none"
-                      href="#"
-                    >
-                      Send
-                    </a>
-                  </div>
-                </form>
+                <h4 className=" text-xl pb-3 lg:pb-0 md:pb-0 md:text-2xl lg:text-2xl text-black">
+                  Wanna Connect with Us?
+                </h4>
+                <form onSubmit={handleSubmit}>
+      <div className="flex flex-row items-start gap-2 sm:flex-row sm:gap-3 bg-black rounded-lg p-2 dark:bg-gray-800">
+        <div className="w-full">
+          <label htmlFor="hero-input" className="sr-only">Email</label>
+          <input
+            type="email"
+            id="hero-input"
+            name="hero-input"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+            className="py-4 px-1 pr-[1rem] md:py-4 md:px-6 md:pr-[7rem] lg:py-4 lg:pl-4 lg:pr-[8rem] bg-black block w-full border-transparent rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none text-white dark:bg-slate-900 dark:border-transparent dark:text-white dark:focus:ring-gray-600"
+            placeholder="Enter your email"
+          />
+          <p className={`text-center ${color}`}>{message}</p>
+        </div>
+        <button
+          type="submit"
+          disabled={loading}
+          className="w-auto whitespace-nowrap px-[1.5rem] py-3 lg:py-3.5 lg:px-[1.9rem] inline-flex justify-center items-top gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-[#188CFF] text-black hover:bg-[#D0DAF5] disabled:opacity-50 disabled:pointer-events-none"
+        >
+          {loading ? 'Sending...' : 'Send'}
+        </button>
+      </div>
+    </form>
               </div>
+     
             </div>
+                           
           </div>
         </div>
         <div className="flex flex-wrap justify-center mt-10 mb-4">
@@ -111,7 +171,7 @@ export default function Footer() {
         <div className="mt-auto w-full max-w-[85rem] py-0 px-4 sm:px-6 lg:px-8 mx-auto">
           <div className="text-center">
             <div className="inline-flex justify-center items-center">
-            <img
+              <img
                 src="/img/Logo/srm_logo.svg"
                 alt="Hacktrix-Logo"
                 className="w-30 h-[2rem] lg:w-33 lg:h-[2.5rem]"
@@ -123,9 +183,12 @@ export default function Footer() {
               />
             </div>
             <div className="mt-3">
-      {/* <p className="text-gray-500">We're part of the <a class="font-semibold text-blue-600 hover:text-blue-700 dark:text-blue-500 dark:hover:text-blue-400" href="#">Htmlstream</a> family.</p> */}
-      <p className="text-gray-500">© 2024 SRM Institute of Science and Technology. All Rights Reserved.</p>
-    </div>
+              {/* <p className="text-gray-500">We're part of the <a class="font-semibold text-blue-600 hover:text-blue-700 dark:text-blue-500 dark:hover:text-blue-400" href="#">Htmlstream</a> family.</p> */}
+              <p className="text-gray-500">
+                © 2024 SRM Institute of Science and Technology. All Rights
+                Reserved.
+              </p>
+            </div>
             <div className=" space-x-2">
               <a
                 className="size-8 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-full border border-transparent text-gray-500 hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:text-gray-400 dark:hover:bg-gray-700"
@@ -179,3 +242,56 @@ export default function Footer() {
     </>
   );
 }
+
+
+// // app/components/Footer/Footer.tsx
+// "use client";
+// import React, { useState } from 'react';
+
+// const Footer = () => {
+//   const [email, setEmail] = useState('');
+//   const [message, setMessage] = useState('');
+
+//   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+//     e.preventDefault();
+//     try {
+//       const response = await fetch('/api/subscribe', {
+//         method: 'POST',
+//         headers: {
+//           'Content-Type': 'application/json',
+//         },
+//         body: JSON.stringify({ email }),
+//       });
+
+//       if (response.status ===201) {
+//         setMessage('Email sent successfully');
+//         setEmail('');
+//       } else {
+//         const data = await response.json(); 
+//         setMessage(`Failed to send email: ${data.error || response.statusText}`);
+//       }
+//     } catch (error) {
+//       setMessage('Error: ' + error.message);
+//     }
+//   };
+
+//   return (
+//     <footer>
+//       <h1>Subscribe to our newsletter</h1>
+//       <form onSubmit={handleSubmit}>
+//         <input
+//           type="email"
+//           value={email}
+//           onChange={(e) => setEmail(e.target.value)}
+//           placeholder="Enter your email"
+//           required
+//         />
+//         <button type="submit">Submit</button>
+//       </form>
+//       <p>{message}</p>
+//     </footer>
+//   );
+// };
+
+export default Footer;
+

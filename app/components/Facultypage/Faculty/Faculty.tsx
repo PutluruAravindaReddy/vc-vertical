@@ -3,13 +3,13 @@ import FacultyCard from "./FacultyCard/FacultyCard";
 
 export default function Faculty() {
   const FacultyData = [
-    {
-      imageUrl: "./img/faculty/Sabhanayagham.jpg",
-      name: "Dr. Sabhanayagham T",
-      description: "AI & ML, Neural Networks, Computer Vision, Cellular Automata, Cryptography",
-      role: "Deputy Controller of Examinations",
-      Learnmore: "https://www.srmist.edu.in/faculty/dr-t-sabhanayagham/"
-    },
+    // {
+    //   imageUrl: "./img/faculty/Sabhanayagham.jpg",
+    //   name: "Dr. Sabhanayagham T",
+    //   description: "AI & ML, Neural Networks, Computer Vision, Cellular Automata, Cryptography",
+    //   role: "Deputy Controller of Examinations",
+    //   Learnmore: "https://www.srmist.edu.in/faculty/dr-t-sabhanayagham/"
+    // },
     {
       imageUrl: "./img/faculty/Dr.G.NIRANJANA.jpg",
       name: "Dr. Niranjana G",
