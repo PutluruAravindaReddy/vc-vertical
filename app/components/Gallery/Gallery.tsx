@@ -1,74 +1,148 @@
-import React from "react";
+"use client";
 
-const Gallery=()=>{
-    return(
-        <>
-<div className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
-  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+import React, { useState } from "react";
+// import SliderGal from "./SliderGal/SliderGal";
+import "./slider.css";
+
+const Gallery = () => {
+  const [activePanel, setActivePanel] = useState(0); // State to track active panel index
+
+  const handlePanelClick = (index: React.SetStateAction<number>) => {
+    setActivePanel(index); // Update active panel index
+  };
+  return (
+    <>
+    <div className="max-w-[85rem] px-4 py-5 sm:px-6 lg:px-8 lg:py-1 mx-auto">
+      <div className="max-w-[85rem] px-4 py-5 sm:px-6 lg:px-8 lg:py-1 mx-auto">
+        <h2 className="text-2xl text-gray-800 font-bold lg:text-[2rem] sm:py-3 dark:text-white py-0">
+          <span className="bg-clip-text bg-gradient-to-tl from-blue to-violet-600 text-transparent">
+            Gallery
+          </span>
+        </h2>
+      </div>
+      <div className="flex items-center justify-center overflow-hidden ">
+        <div className="flex w-[95%] transition-opacity duration-300 ease-in delay-400">
+          <div
+            className={`panel ${activePanel === 0 ? "active" : ""}`}
+            style={{ backgroundImage: "url(/img/Gallery/Img_1.png)" }}
+            onClick={() => handlePanelClick(0)}
+          >
+            <h1></h1>
+          </div>
+          <div
+            className={`panel ${activePanel === 1 ? "active" : ""}`}
+            style={{ backgroundImage: "url(/img/Gallery/Img_6.jpg)" }}
+            onClick={() => handlePanelClick(1)}
+          >
+            <h1></h1>
+          </div>
+          <div
+            className={`panel ${activePanel === 2 ? "active" : ""}`}
+            style={{ backgroundImage: "url(/img/Gallery/Img_9.jpg)" }}
+            onClick={() => handlePanelClick(2)}
+          >
+            <h1></h1>
+          </div>
+          <div
+            className={`panel ${activePanel === 3 ? "active" : ""}`}
+            style={{ backgroundImage: "url(/img/Gallery/Img_2.png)" }}
+            onClick={() => handlePanelClick(3)}
+          >
+            <h1></h1>
+          </div>
+          <div
+            className={`panel ${activePanel === 4 ? "active" : ""}`}
+            style={{ backgroundImage: "url(/img/Gallery/Img_7.jpg)" }}
+            onClick={() => handlePanelClick(4)}
+          >
+            <h1></h1>
+          </div>
+          <div
+            className={`panel ${activePanel === 5 ? "active" : ""}`}
+            style={{ backgroundImage: "url(/img/Gallery/Img_8.jpg)" }}
+            onClick={() => handlePanelClick(5)}
+          >
+            <h1></h1>
+          </div>
+        </div>
+      </div>
+
+      <div className="flex  justify-center my-14 sm:my-10">
+  <div className="grid w-[95%] grid-cols-2 sm:grid-cols-4 gap-2">
     <div className="space-y-2">
       <img
-        className="w-full h-auto object-cover"
-        src="https://images.unsplash.com/photo-1540575861501-7cf05a4b125a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
+        className="w-full sm:size-80 object-cover"
+        src="/img/Gallery/Img_1.png"
         alt="Image Description"
       />
       <img
-        className="w-full h-auto object-cover"
-        src="https://images.unsplash.com/photo-1668906093328-99601a1aa584?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=986&q=80"
+        className="w-full sm:size-80 object-cover"
+        src="/img/Gallery/Img_2.png"
         alt="Image Description"
       />
       <img
-        className="w-full h-auto object-cover"
-        src="https://images.unsplash.com/photo-1567016526105-22da7c13161a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80"
+        className="w-full sm:size-80 object-cover"
+        src="/img/Gallery/Img_3.jpg"
         alt="Image Description"
       />
     </div>
     <div className="space-y-2">
       <img
-        className="w-full h-auto object-cover"
-        src="https://images.unsplash.com/photo-1668584054131-d5721c515211?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1064&q=80"
+        className="w-full sm:size-80 object-cover"
+        src="/img/Gallery/Img_4.jpg"
         alt="Image Description"
       />
       <img
-        className="w-full h-auto object-cover"
-        src="https://images.unsplash.com/photo-1664574654529-b60630f33fdb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80"
-        alt="Image Description"
-      />
-    </div>
-    <div className="space-y-2">
-      <img
-        className="w-full h-auto object-cover"
-        src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
+        className="w-full sm:size-80 object-cover"
+        src="/img/Gallery/Img_5.jpg"
         alt="Image Description"
       />
       <img
-        className="w-full h-auto object-cover"
-        src="https://images.unsplash.com/photo-1586232702178-f044c5f4d4b7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1035&q=80"
-        alt="Image Description"
-      />
-      <img
-        className="w-full h-auto object-cover"
-        src="https://images.unsplash.com/photo-1542125387-c71274d94f0a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
+        className="w-full sm:size-80 object-cover"
+        src="/img/Gallery/Img_6.jpg"
         alt="Image Description"
       />
     </div>
     <div className="space-y-2">
       <img
-        className="w-full h-auto object-cover"
-        src="https://images.unsplash.com/photo-1668869713519-9bcbb0da7171?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=988&q=80"
+        className="w-full sm:size-80 object-cover"
+        src="/img/Gallery/Img_7.jpg"
         alt="Image Description"
       />
       <img
-        className="w-full h-auto object-cover"
-        src="https://images.unsplash.com/photo-1668584054035-f5ba7d426401?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3465&q=80"
+        className="w-full sm:size-80 object-cover"
+        src="/img/Gallery/Img_8.jpg"
+        alt="Image Description"
+      />
+      <img
+        className="w-full sm:size-80 object-cover"
+        src="/img/Gallery/Img_8.jpg"
+        alt="Image Description"
+      />
+    </div>
+    <div className="space-y-2">
+      <img
+        className="w-full sm:size-80 object-cover"
+        src="/img/Gallery/Img_8.jpg"
+        alt="Image Description"
+      />
+      <img
+        className="w-full sm:size-80 object-cover"
+        src="/img/Gallery/Img_8.jpg"
+        alt="Image Description"
+      />
+      <img
+        className="w-full sm:size-80 object-cover"
+        src="/img/Gallery/Img_8.jpg"
         alt="Image Description"
       />
     </div>
   </div>
 </div>
 
-
-        </>
-    )
-}
+      </div>
+    </>
+  );
+};
 
 export default Gallery;

@@ -1,4 +1,4 @@
-import React from "react";
+
 import FacultyCard from "./FacultyCard/FacultyCard";
 
 export default function Faculty() {

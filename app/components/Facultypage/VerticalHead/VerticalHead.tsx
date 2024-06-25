@@ -1,5 +1,4 @@
 import Image from "next/image";
-import React from "react";
 
 export default function VerticalHead() {
   return (
@@ -10,7 +9,7 @@ export default function VerticalHead() {
         <div className="flex flex-col sm:flex-row md:items-center">
           {/* End Col */}
           <div className="relative ms-4 max-w-[15rem]">
-            <Image
+            <img
               className="w-full rounded-md"
               src="/img/faculty/Sreedhar_sir.jpg"
               alt="Image Description"
