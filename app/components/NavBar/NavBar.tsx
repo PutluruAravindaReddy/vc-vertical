@@ -37,12 +37,12 @@ export default function NavBar() {
             >
               <img
                 src="/img/Logo/srm_logo.svg"
-                alt="Hacktrix-Logo"
+                alt="Srm Logo"
                 className="w-30 h-[2rem] lg:w-33 lg:h-[2.5rem]"
               />
               <img
                 src="/img/Logo/vc_logo.jpg"
-                alt="Hacktrix-Logo"
+                alt="Vertical Logo"
                 className=" w-[2.6rem] h-[2.5rem] lg:w-[3rem] lg:h-[3rem] rounded-[50%] "
               />
             </a>
