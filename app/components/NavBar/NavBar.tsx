@@ -94,7 +94,7 @@ export default function NavBar() {
                     ? "text-blue"
                     : "text-black hover:text-gray-500 sm:py-6 "
                 }`}
-                href="./publications"
+                href="/publications"
               >
                 Publications
               </Link>
