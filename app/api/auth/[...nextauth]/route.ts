@@ -104,4 +104,6 @@ const authOptions: AuthOptions = {
   debug: true, // Enable debug logging
 };
 
-export default NextAuth(authOptions);
+const handler = NextAuth(authOptions);
+
+export { handler as GET, handler as POST };
