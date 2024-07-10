@@ -101,7 +101,7 @@ const authOptions: AuthOptions = {
     },
   },
   secret: process.env.NEXTAUTH_SECRET,
-  debug: true, // Enable debug logging
+  debug: process.env.NODE_ENV !== 'production',
 };
 
 const handler = NextAuth(authOptions);
