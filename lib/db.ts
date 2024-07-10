@@ -17,7 +17,8 @@ const connect = async()=>{
     try{
         mongoose.connect(MONGODB_URI!,{
             dbName:"cvvertical",
-            bufferCommands:false
+            bufferCommands: false,
+            
         });
         console.log("Connected Successfully");
     }catch(error){

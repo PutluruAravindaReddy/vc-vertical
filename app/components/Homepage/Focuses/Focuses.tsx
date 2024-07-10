@@ -17,7 +17,7 @@ const Focuses = () => {
   useEffect(() => {
     const fetchTasks = async () => {
       try {
-        const response = await fetch("/api/LabFocus", {
+        const response = await fetch("https://vc-vertical.vercel.app/api/LabFocus", {
           method: "GET",
         });
 
