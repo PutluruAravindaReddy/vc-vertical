@@ -146,7 +146,7 @@ const Focuses = () => {
   useEffect(() => {
     const fetchTasks = async () => {
       try {
-        const response = await fetch("/api/LabFocus", {
+        const response = await fetch("http://localhost:3000/api/LabFocus", {
           method: "GET",
         });
 
@@ -174,7 +174,7 @@ const Focuses = () => {
 
   const handleDeleteTask = async (id: string) => {
     try {
-      const response = await fetch(`/api/LabFocus/${id}`, {
+      const response = await fetch(`http://localhost:3000/api/LabFocus/${id}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
