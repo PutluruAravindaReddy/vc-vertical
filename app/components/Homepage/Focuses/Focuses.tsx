@@ -113,6 +113,11 @@ const Focuses = () => {
           ))}
         </div>
       )}
+      {
+        tasks.length <=0 && (
+          <h1>No Lab Focuses Found</h1>
+        )
+      }
     </div>
   );
 };
