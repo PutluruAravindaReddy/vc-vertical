@@ -1,4 +1,10 @@
+"use client";
+import { useState, useEffect } from 'react';
+import Link from 'next/link';
+import { useSession } from 'next-auth/react';
+
 interface Book {
+  _id: string;
   chapterTitle: string;
   authors: string[];
   bookTitle: string;
@@ -9,15 +15,61 @@ interface Book {
   DOI?: string;
   link?: string;
 }
-interface BooksListProps {
-  books: Book[];
-}
 
-const BooksList: React.FC<BooksListProps> = ({ books }) => {
+const BooksList = () => {
+  const { data: session } = useSession();
+  const [books, setBooks] = useState<Book[]>([]);
+
+  useEffect(() => {
+    const fetchBooks = async () => {
+      try {
+        const response = await fetch('/api/PublicationsRoute/Books', {
+          method: 'GET',
+        });
+
+        if (!response.ok) {
+          throw new Error('Failed to fetch books');
+        }
+
+        const responseData = await response.json();
+        console.log('Fetched books:', responseData.data);
+        setBooks(responseData.data);
+      } catch (error) {
+        console.error('Error fetching books:', error);
+      }
+    };
+
+    fetchBooks();
+  }, []);
+
+  const handleDeleteBook = async (id: string) => {
+    try {
+      const response = await fetch(`/api/PublicationsRoute/Books/${id}`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to delete book');
+      }
+
+      const updatedBooks = books.filter(book => book._id !== id);
+      setBooks(updatedBooks);
+    } catch (error) {
+      console.error('Error deleting book:', error);
+    }
+  };
+
+  function handleDeletePublication(_id: any): void {
+    throw new Error('Function not implemented.');
+  }
+
   return (
     <div>
-      {books.map((book, index) => (
-        <div key={index} className="bg-white shadow-md rounded-lg p-4 m-2 max-w-full">
+      {books.map((book) => (
+        <div key={book._id} className="bg-white shadow-md rounded-lg p-4 m-2 max-w-full">
           <h2 className="text-md sm:text-xl font-bold text-justify mb-2">{book.chapterTitle}</h2>
           
           {/* Authors */}
@@ -72,6 +124,28 @@ const BooksList: React.FC<BooksListProps> = ({ books }) => {
             >
               Read More
             </a>
+          )}
+          {session?.user?.name && (
+            <div className="flex items-center justify-center mx-4 mb-2 space-x-2">
+              <Link
+                href={`/Forms/PublicationsForm/Books/${book._id}`}
+                className="px-4 py-2 font-semibold text-white bg-blue rounded-lg shadow-md hover:bg-blue focus:outline-none focus:ring-2 focus:ring-blue focus:ring-opacity-75 transition duration-200"
+              >
+                Edit
+              </Link>
+              <Link
+                className="px-4 my-3 py-2 font-semibold text-white bg-green-700 rounded-lg shadow-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-75 transition duration-200"
+                href="/Forms/PublicationsForm/Books/new"
+              >
+                Add
+              </Link>
+              <button
+                onClick={() => handleDeletePublication(book._id)}
+                className="px-4 py-2 font-semibold text-white bg-red-600 rounded-lg shadow-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-75 transition duration-200"
+              >
+                Delete
+              </button>
+            </div>
           )}
         </div>
       ))}

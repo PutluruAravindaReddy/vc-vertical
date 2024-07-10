@@ -1,52 +1,134 @@
-interface FDPSTTPWorkshop {
-    title: string;
-    organizers: string[];
-    startDate: string;
-    endDate?: string;
-    location?: string;
-    link?: string;
-  }
-  // Adjust the import path as needed
+"use client";
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import { useSession } from "next-auth/react";
 
-interface FDPSTTPWorkshopsListProps {
-  events: FDPSTTPWorkshop[];
+export interface Workshop {
+  _id: string;
+  title: string;
+  organizers: string[];
+  startDate: string;
+  endDate?: string;
+  location?: string;
+  link?: string;
 }
 
-const FDPSTTPWorkshopsList: React.FC<FDPSTTPWorkshopsListProps> = ({ events }) => {
+const FDPSTTPWorkshopsList = () => {
+  const { data: session } = useSession();
+  const [workshops, setWorkshops] = useState<Workshop[]>([]);
+
+  useEffect(() => {
+    const fetchWorkshops = async () => {
+      try {
+        const response = await fetch(
+          "/api/PublicationsRoute/Workshops",
+          {
+            method: "GET",
+          }
+        );
+
+        if (!response.ok) {
+          throw new Error("Failed to fetch workshops");
+        }
+
+        const responseData = await response.json();
+        console.log("Fetched workshops:", responseData.data);
+        setWorkshops(responseData.data);
+      } catch (error) {
+        console.error("Error fetching workshops:", error);
+      }
+    };
+
+    fetchWorkshops();
+  }, []);
+
+  const handleDeleteWorkshop = async (id: string) => {
+    try {
+      const response = await fetch(
+        `/api/PublicationsRoute/Workshops/${id}`,
+        {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("Failed to delete workshop");
+      }
+
+      const updatedWorkshops = workshops.filter(
+        (workshop) => workshop._id !== id
+      );
+      setWorkshops(updatedWorkshops);
+    } catch (error) {
+      console.error("Error deleting workshop:", error);
+    }
+  };
+
   return (
     <div>
-      {events.map((event, index) => (
-        <div key={index} className="bg-white shadow-md rounded-lg p-4 m-2 max-w-full">
-          <h2 className="text-md sm:text-xl font-bold text-justify mb-2">{event.title}</h2>
-          
+      {workshops.map((workshop) => (
+        <div
+          key={workshop._id}
+          className="bg-white shadow-md rounded-lg p-4 m-2 max-w-full"
+        >
+          <h2 className="text-md sm:text-xl font-bold text-justify mb-2">
+            {workshop.title}
+          </h2>
+
           {/* Organizers */}
           <p className="text-gray-700 text-[0.8rem] sm:text-[1rem] mb-1">
-            <strong>Organizers:</strong> {event.organizers.join(', ')}
+            <strong>Organizers:</strong> {workshop.organizers.join(", ")}
           </p>
-          
+
           {/* Date */}
           <p className="text-gray-700 text-[0.8rem] sm:text-[1rem] mb-1">
-            <strong>Date:</strong> {event.startDate}
-            {event.endDate && ` - ${event.endDate}`}
+            <strong>Date:</strong> {workshop.startDate}
+            {workshop.endDate && ` - ${workshop.endDate}`}
           </p>
-          
+
           {/* Location (if available) */}
-          {event.location && (
+          {workshop.location && (
             <p className="text-gray-700 text-[0.8rem] sm:text-[1rem] mb-1">
-              <strong>Location:</strong> {event.location}
+              <strong>Location:</strong> {workshop.location}
             </p>
           )}
-          
+
           {/* Link (if available) */}
-          {event.link && (
+          {workshop.link && (
             <a
-              href={event.link}
+              href={workshop.link}
               target="_blank"
               rel="noopener noreferrer"
               className="text-[#2563EB] hover:underline block"
             >
               More Info
             </a>
+          )}
+
+          {session?.user?.name && (
+            <div className="flex items-center justify-center mx-4 mb-2 space-x-2">
+              <Link
+                href={`/Forms/PublicationsForm/Workshops/${workshop._id}`}
+                className="px-4 py-2 font-semibold text-white bg-blue rounded-lg shadow-md hover:bg-blue focus:outline-none focus:ring-2 focus:ring-blue focus:ring-opacity-75 transition duration-200"
+              >
+                Edit
+              </Link>
+              <Link
+                className="px-4 my-3 py-2 font-semibold text-white bg-green-700 rounded-lg shadow-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-75 transition duration-200"
+                href="/Forms/PublicationsForm/Workshops/new"
+              >
+                Add
+              </Link>
+              <button
+                onClick={() => handleDeleteWorkshop(workshop._id)}
+                className="px-4 py-2 font-semibold text-white bg-red-600 rounded-lg shadow-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-75 transition duration-200"
+              >
+                Delete
+              </button>
+            </div>
           )}
         </div>
       ))}

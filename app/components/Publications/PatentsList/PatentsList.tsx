@@ -1,6 +1,10 @@
-import React from 'react';
+"use client";
+import { useState, useEffect } from 'react';
+import Link from 'next/link';
+import { useSession } from 'next-auth/react';
 
 interface Patent {
+  _id: string;
   title: string;
   journal?: string;
   applicationNumber?: string;
@@ -15,15 +19,56 @@ interface Patent {
   faculty?: string;
 }
 
-interface PatentsListProps {
-  patents: Patent[];
-}
+const PatentsList = () => {
+  const { data: session } = useSession();
+  const [patents, setPatents] = useState<Patent[]>([]);
 
-const PatentsList: React.FC<PatentsListProps> = ({ patents }) => {
+  useEffect(() => {
+    const fetchPatents = async () => {
+      try {
+        const response = await fetch('/api/PublicationsRoute/Patents', {
+          method: 'GET',
+        });
+
+        if (!response.ok) {
+          throw new Error('Failed to fetch patents');
+        }
+
+        const responseData = await response.json();
+        console.log('Fetched patents:', responseData.data);
+        setPatents(responseData.data);
+      } catch (error) {
+        console.error('Error fetching patents:', error);
+      }
+    };
+
+    fetchPatents();
+  }, []);
+
+  const handleDeletePatent = async (id: string) => {
+    try {
+      const response = await fetch(`/api/PublicationsRoute/Patents/${id}`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to delete patent');
+      }
+
+      const updatedPatents = patents.filter(patent => patent._id !== id);
+      setPatents(updatedPatents);
+    } catch (error) {
+      console.error('Error deleting patent:', error);
+    }
+  };
+
   return (
     <div className="flex flex-col flex-wrap justify-center">
-      {patents.map((patent, index) => (
-        <div key={index} className="bg-white shadow-md rounded-lg p-4 m-2 max-w-full">
+      {patents.map((patent) => (
+        <div key={patent._id} className="bg-white shadow-md rounded-lg p-4 m-2 max-w-full">
           <h2 className="text-md sm:text-xl text-justify	 font-bold mb-2">{patent.title}</h2>
 
           {patent.faculty && (
@@ -85,6 +130,28 @@ const PatentsList: React.FC<PatentsListProps> = ({ patents }) => {
             >
               Read More
             </a>
+          )}
+          {session?.user?.name && (
+            <div className="flex items-center justify-center mx-4 mb-2 space-x-2">
+              <Link
+                href={`/Forms/PublicationsForm/Patents/${patent._id}`}
+                className="px-4 py-2 font-semibold text-white bg-blue rounded-lg shadow-md hover:bg-blue focus:outline-none focus:ring-2 focus:ring-blue focus:ring-opacity-75 transition duration-200"
+              >
+                Edit
+              </Link>
+              <Link
+                className="px-4 my-3 py-2 font-semibold text-white bg-green-700 rounded-lg shadow-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-75 transition duration-200"
+                href="/Forms/PublicationsForm/Patents/new"
+              >
+                Add
+              </Link>
+              <button
+                onClick={() => handleDeletePatent(patent._id)}
+                className="px-4 py-2 font-semibold text-white bg-red-600 rounded-lg shadow-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-75 transition duration-200"
+              >
+                Delete
+              </button>
+            </div>
           )}
         </div>
       ))}

@@ -1,25 +1,38 @@
 "use client";
 import React from "react";
-import { useEffect, useState } from 'react';
+import { CldImage } from "next-cloudinary";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
+import { useSession } from "next-auth/react";
 
 export default function NavBar() {
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const { data: session } = useSession();
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    if (typeof window !== "undefined") {
+      const darkModeMediaQuery = window.matchMedia(
+        "(prefers-color-scheme: dark)"
+      );
       setIsDarkMode(darkModeMediaQuery.matches);
-      const handleChange = (e: { matches: boolean | ((prevState: boolean) => boolean); }) => {
+      const handleChange = (e: {
+        matches: boolean | ((prevState: boolean) => boolean);
+      }) => {
         setIsDarkMode(e.matches);
       };
-      darkModeMediaQuery.addEventListener('change', handleChange);
-      return () => darkModeMediaQuery.removeEventListener('change', handleChange);
+      darkModeMediaQuery.addEventListener("change", handleChange);
+      return () =>
+        darkModeMediaQuery.removeEventListener("change", handleChange);
     }
   }, []);
   const pathname = usePathname();
+  const isVCLabActive =
+    pathname === "/VCLAB/Members" ||
+    pathname === "/VCLAB/Projects" ||
+    pathname === "/VCLAB/Equipments" ||
+    pathname === "/VCLAB/Events";
   console.log(pathname);
   return (
     <>
@@ -55,10 +68,28 @@ export default function NavBar() {
                 aria-controls="navbar-collapse-with-animation"
                 aria-label="Toggle navigation"
               >
-                              <svg className="rounded-full" width="50" height="50" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect width="40" height="40" rx="20" fill={isDarkMode ? 'white' : '#253AA0'}/>
-                <path d="M17.75 28.5L26.25 20L17.75 11.5" stroke={isDarkMode ? '#0A0D10' : 'white'} strokeWidth="2.83333" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
+                <svg
+                  className="rounded-full"
+                  width="50"
+                  height="50"
+                  viewBox="0 0 40 40"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect
+                    width="40"
+                    height="40"
+                    rx="20"
+                    fill={isDarkMode ? "white" : "#253AA0"}
+                  />
+                  <path
+                    d="M17.75 28.5L26.25 20L17.75 11.5"
+                    stroke={isDarkMode ? "#0A0D10" : "white"}
+                    strokeWidth="2.83333"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
               </button>
             </div>
           </div>
@@ -109,23 +140,23 @@ export default function NavBar() {
                 Events
               </Link>
               <Link
-               className={`font-medium sm:py-6 ${
-                pathname === "/gallery"
-                  ? "text-blue"
-                  : "text-black hover:text-gray-500 sm:py-6 "
-              }`}
+                className={`font-medium sm:py-6 ${
+                  pathname === "/gallery"
+                    ? "text-blue"
+                    : "text-black hover:text-gray-500 sm:py-6 "
+                }`}
                 href="/gallery"
               >
                 Gallery
               </Link>
-              <div className="hs-dropdown  [--strategy:static] sm:[--strategy:fixed] [--adaptive:none] sm:[--trigger:hover] sm:py-4">
+              <div className="hs-dropdown [--strategy:static] sm:[--strategy:fixed] [--adaptive:none] sm:[--trigger:hover] sm:py-4">
                 <button
                   type="button"
-                  className={`flex items-center w-full hover:text-gray-500 font-medium ${
-                    pathname === "/VCLAB/Members" || "/VCLAB/Projects" || "/VCLAB/Equipments" || "/VCLAB/Events"
+                  className={`flex items-center w-full font-medium ${
+                    isVCLabActive
                       ? "text-blue"
-                      : "text-black hover:text-gray-500 "
-                  } `}
+                      : "text-black hover:text-gray-500"
+                  }`}
                 >
                   VC Lab
                   <svg
@@ -143,75 +174,44 @@ export default function NavBar() {
                     <path d="m6 9 6 6 6-6" />
                   </svg>
                 </button>
-                <div className="hs-dropdown-menu bg-gradient-to-tl from-[#EFF6FF] via-[#DBEAFE] to-[#EFF6FF] transition-[opacity,margin] duration-[0.1ms] sm:duration-[150ms] hs-dropdown-open:opacity-100 opacity-0 sm:w-48 hidden z-10 bg-white sm:shadow-md rounded-lg p-2    before:absolute top-full sm:border before:-top-5 before:start-0 before:w-full before:h-5">
+                <div className="hs-dropdown-menu bg-gradient-to-tl from-[#EFF6FF] via-[#DBEAFE] to-[#EFF6FF] transition-[opacity,margin] duration-[0.1ms] sm:duration-[150ms] hs-dropdown-open:opacity-100 opacity-0 sm:w-48 hidden z-10 bg-white sm:shadow-md rounded-lg p-2 before:absolute top-full sm:border before:-top-5 before:start-0 before:w-full before:h-5">
                   <Link
-                    className={`flex items-center font-medium gap-x-3.5 py-2 px-3 rounded-lg text-base text-black hover:bg-gray-100 focus:ring-2 focus:ring-blue-500 ${
+                    className={`flex items-center font-medium gap-x-3.5 py-2 px-3 rounded-lg text-base ${
                       pathname === "/VCLAB/Members"
                         ? "text-blue"
-                        : "text-black hover:text-gray-500 "
+                        : "text-black hover:text-gray-500"
                     }`}
-
-                    href="./VCLAB/Members"
+                    href="/VCLAB/Members"
                   >
                     Members
                   </Link>
-                  {/* <div className="hs-dropdown relative [--strategy:static] sm:[--strategy:absolute] [--adaptive:none] sm:[--trigger:hover]">
-                      <button
-                        type="button"
-                        className="w-full flex justify-between items-center text-sm text-gray-800 rounded-lg py-2 px-3 hover:bg-gray-100 focus:ring-2 focus:ring-blue-500 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300"
-                      >
-                        Sub Menu
-                        <svg
-                          className="sm:-rotate-90 flex-shrink-0 ms-2 size-4"
-                          xmlns="http://www.w3.org/2000/svg"
-                          width={24}
-                          height={24}
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth={2}
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        >
-                          <path d="m6 9 6 6 6-6" />
-                        </svg>
-                      </button>
-                      <div className="hs-dropdown-menu transition-[opacity,margin] duration-[0.1ms] sm:duration-[150ms] hs-dropdown-open:opacity-100 opacity-0 sm:w-48 hidden z-10 sm:mt-2 bg-white sm:shadow-md rounded-lg p-2 dark:bg-gray-800 sm:dark:border dark:border-gray-700 dark:divide-gray-700 before:absolute sm:border before:-end-5 before:top-0 before:h-full before:w-5 top-0 end-full !mx-[10px]">
-                        <Link
-                          className="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:ring-2 focus:ring-blue-500 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300"
-                          href="#"
-                        >
-                          About
-                        </Link>
-                        <Link
-                          className="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:ring-2 focus:ring-blue-500 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300"
-                          href="#"
-                        >
-                          Downloads
-                        </Link>
-                        <Link
-                          className="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:ring-2 focus:ring-blue-500 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300"
-                          href="#"
-                        >
-                          Team Account
-                        </Link>
-                      </div>
-                    </div> */}
                   <Link
-                    className="flex items-center font-medium gap-x-3.5 py-2 px-3 rounded-lg text-base text-black hover:bg-gray-100 focus:ring-2 focus:ring-blue-500  "
-                    href="#"
+                    className={`flex items-center font-medium gap-x-3.5 py-2 px-3 rounded-lg text-base ${
+                      pathname === "/VCLAB/Projects"
+                        ? "text-blue"
+                        : "text-black hover:text-gray-500"
+                    }`}
+                    href="/VCLAB/Projects"
                   >
                     Projects
                   </Link>
                   <Link
-                    className="flex items-center font-medium gap-x-3.5 py-2 px-3 rounded-lg text-base text-black hover:bg-gray-100 focus:ring-2 focus:ring-blue-500  "
-                    href="#"
+                    className={`flex items-center font-medium gap-x-3.5 py-2 px-3 rounded-lg text-base ${
+                      pathname === "/VCLAB/Equipments"
+                        ? "text-blue"
+                        : "text-black hover:text-gray-500"
+                    }`}
+                    href="/VCLAB/Equipments"
                   >
                     Equipments
                   </Link>
                   <Link
-                    className="flex items-center font-medium gap-x-3.5 py-2 px-3 rounded-lg text-base text-black hover:bg-gray-100 focus:ring-2 focus:ring-blue-500  "
-                    href="#"
+                    className={`flex items-center font-medium gap-x-3.5 py-2 px-3 rounded-lg text-base ${
+                      pathname === "/VCLAB/Events"
+                        ? "text-blue"
+                        : "text-black hover:text-gray-500"
+                    }`}
+                    href="/VCLAB/Events"
                   >
                     Events
                   </Link>

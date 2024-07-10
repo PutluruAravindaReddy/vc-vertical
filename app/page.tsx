@@ -5,6 +5,8 @@ import Header from './components/Homepage/Header/Header'
 import UpcomingEvents from './components/Homepage/UpcomingEvents/UpcomingEvents';
 import NavBar from './components/NavBar/NavBar';
 import Footer from './components/Footer/Footer';
+import { useSession } from 'next-auth/react';
+
 
 export const metadata:Metadata = {
   title: 'Home - SRM Institute of Science and Technology',
@@ -40,17 +42,12 @@ export const metadata:Metadata = {
 
 export default function Home() {
   return (
-    <html>
-      <head>
-
-      </head>
-      <body>
+      <>
         <NavBar/>
         <Header/>
         <Focuses/>
         <UpcomingEvents/>
         <Footer/>
-      </body>
-    </html>
+      </>
   );
 }

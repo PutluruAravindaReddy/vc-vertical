@@ -1,84 +1,120 @@
-import React from "react";
-import FeatureCard from "./FeatureCard/FeatureCrad";
+"use client";
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import { useSession } from "next-auth/react";
 
-export default function Focuses() {
-  const cardData = [
-    {
-      imageUrl: './img/features/research-1.jpeg',
-      title: 'Research and Innovation',
-      description: 'Visual Computing labs often aim to advance the state of the art in computer graphics, computer vision, and related fields for developing new algorithms, techniques, and technologies for creating, processing, and understanding visual data.',
-    },
-    {
-      imageUrl: './img/features/education-training.jpg',
-      title: 'Education and Training',
-      description: 'Visual computing lab provides a space for students and researchers to gain hands-on experience in visual computing through courses, workshops, and training programs to educate and prepare future professionals in this field.',
-    },
-    {
-      imageUrl: './img/features/technology_develpoment.jpeg',
-      title: 'Technology Development',
-      description: 'Visual computing labs work on developing software tools, frameworks, and hardware systems to support various applications, such as 3D modeling, virtual reality, augmented reality, and image analysis.',
-    },
-    {
-      imageUrl: './img/features/industry-collboration.webp',
-      title: 'Industry Collaboration',
-      description: 'Visual Computing Lab collaborates with industry partners, applying research findings for practical applications and effective technology transfer. This collaboration bridges academia and industry, ensuring the impactful implementation of our advancements.',
-    },
-    {
-      imageUrl: './img/features/application-development.webp',
-      title: 'Application Development',
-      description: 'Labs focus on creating real-world applications of visual computing, such as video games, simulation environments, medical imaging systems, or augmented reality applications for industries like education, healthcare, and entertainment.',
-    },
-    {
-      imageUrl: './img/features/cross-platfrom.jpeg',
-      title: 'Cross-disciplinary Collaboration',
-      description: 'Visual computing often intersects with other fields, such as artificial intelligence, machine learning, and robotics to facilitate collaboration and interdisciplinary research to address complex problems that require a combination of expertise.',
-    },
-    {
-      imageUrl: './img/features/publishing-dismentation.jpg',
-      title: 'Publishing and Dissemination',
-      description: 'The lab often strives to publish their research findings in academic journals and conferences to contribute to the global knowledge base and make their work accessible to the wider community.',
-    },
-    {
-      imageUrl: './img/features/ux-design.jpeg',
-      title: 'User Experience (UX) Design',
-      description: 'This lab concentrates on improving the user experience by studying how humans interact with visual content and developing user interfaces, user-centered designs, and usability testing methodologies.',
-    },
-    {
-      imageUrl: './img/features/computer-vision.jpeg',
-      title: 'Computer Vision',
-      description: 'The lab is more geared towards computer vision, it may aim to develop algorithms and systems that can automatically interpret and understand visual data from images and videos for applications like object recognition, surveillance, and autonomous vehicles.',
-    },
-    {
-      imageUrl: './img/features/image-video.jpg',
-      title: 'Image and Video Processing',
-      description: 'The lab concentrates on image and video processing techniques to enhance or manipulate visual data for various purposes, including improving image quality, compression, and restoration.',
-    },
-    {
-      imageUrl: './img/features/ethical-social.jpeg',
-      title: 'Ethical and Social Considerations',
-      description: 'Visual computing labs also consider the ethical implications of the work, including privacy issues, bias in algorithms, and the impact of visual computing on society.',
-    },
-  ];
-  
-
-  return (
-    <>
-    <div className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
-    <h2 className="text-2xl text-gray-800 font-bold lg:text-[2rem] dark:text-white py-6">
-        
-        <span className="bg-clip-text bg-gradient-to-tl from-blue to-violet-600 text-transparent">Particularly</span>, our recent lab focus on studying
-        </h2>
-    {/* Grid */}
-    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-
-      {cardData.map((data, index) => (
-        <FeatureCard key={index} {...data} />
-      ))}
-    </div>
-    </div>
-    </>
-  );
-
+interface Task {
+  _id: string;
+  title: string;
+  description: string;
+  image: string;
 }
 
+const Focuses = () => {
+  const { data: session } = useSession();
+  const [tasks, setTasks] = useState<Task[]>([]);
 
+  useEffect(() => {
+    const fetchTasks = async () => {
+      try {
+        const response = await fetch("/api/LabFocus", {
+          method: "GET",
+        });
+
+        if (!response.ok) {
+          throw new Error("Failed to fetch tasks");
+        }
+
+        const responseData = await response.json();
+        // console.log("Fetched tasks:", responseData.data);
+        setTasks(responseData.data);
+      } catch (error) {
+        console.error("Error fetching tasks:", error);
+      }
+    };
+
+    fetchTasks();
+  }, []);
+
+  const handleDeleteTask = async (id: string) => {
+    try {
+      const response = await fetch(`/api/LabFocus/${id}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to delete task");
+      }
+
+      const updatedTasks = tasks.filter((task) => task._id !== id);
+      setTasks(updatedTasks);
+    } catch (error) {
+      console.error("Error deleting task:", error);
+    }
+  };
+
+  return (
+    <div className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+      <h2 className="text-2xl text-gray-800 font-bold lg:text-[2rem] dark:text-white py-6">
+        <span className="bg-clip-text bg-gradient-to-tl from-blue to-violet-600 text-transparent">
+          Particularly
+        </span>
+        , our recent lab focus on studying
+      </h2>
+
+      {tasks.length > 0 && (
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {tasks.map((task) => (
+            <div
+              key={task._id}
+              className="group flex flex-col h-full border border-base cursor-pointer border-black border-solid shadow-sm rounded-xl overflow-hidden transition duration-300 transform hover:scale-104 hover:shadow-2xl hover:border-[0.1rem] hover:border-black hover:border-gradient hover:border-opacity-100"
+            >
+              <div className="h-48 sm:h-52 flex justify-center items-center bg-blue rounded-t-xl">
+                <img
+                  src={task.image}
+                  alt=""
+                  className="object-cover w-full h-full rounded-t-xl"
+                />
+              </div>
+              <div className="p-4 md:p-6">
+                <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-300 dark:hover:text-white">
+                  {task.title}
+                </h3>
+                <p className="mt-3 text-gray-500 text-justify">
+                  {task.description}
+                </p>
+              </div>
+              {session?.user?.name && (
+                <div className="flex items-center justify-center mx-4 mb-2 space-x-2">
+                  <Link
+                    className="px-4 my-3 py-2 font-semibold text-white bg-green-700 rounded-lg shadow-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-75 transition duration-200"
+                    href="/Forms/LabFocusForm/new"
+                  >
+                    Add Task
+                  </Link>
+                  <Link
+                    href={`/Forms/LabFocusForm/${task._id}`}
+                    className="px-4 py-2 font-semibold text-white bg-blue rounded-lg shadow-md hover:bg-blue focus:outline-none focus:ring-2 focus:ring-blue focus:ring-opacity-75 transition duration-200"
+                  >
+                    Edit
+                  </Link>
+                  <button
+                    onClick={() => handleDeleteTask(task._id)}
+                    className="px-4 py-2 font-semibold text-white bg-red-600 rounded-lg shadow-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-75 transition duration-200"
+                  >
+                    Delete
+                  </button>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default Focuses;
