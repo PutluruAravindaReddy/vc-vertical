@@ -5,7 +5,12 @@ import type { NextRequest } from 'next/server';
 
 export async function middleware(request: NextRequest) {
   const token = await getToken({ req: request, secret: process.env.JWT_SECRET });
-
+  console.log('Middleware token:', token);
+  console.log('Request details:', {
+    url: request.url,
+    method: request.method,
+    headers: request.headers,
+  });
 
   if (request.nextUrl.pathname.startsWith('/Forms')) {
     if (!token || token.name !== process.env.ADMIN_NAME) {
