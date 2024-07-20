@@ -119,10 +119,10 @@ const AddEquipmentPage = () => {
           />
         )}
       </div>
-      <Link href="/Forms/VCLAB/EquipmentsForm" onClick={handleAddEquipment} className="bg-green-600 text-black px-4 py-2 rounded-md cursor-pointer mr-4">
+      <Link href="/VCLAB/Equipments" onClick={handleAddEquipment} className="bg-green-600 text-black px-4 py-2 rounded-md cursor-pointer mr-4">
         Add Equipment
       </Link>
-      <Link href="/Forms/VCLAB/EquipmentsForm" className="bg-green-600 text-black px-4 py-2 rounded-md cursor-pointer">
+      <Link href="/VCLAB/Equipments" className="bg-green-600 text-black px-4 py-2 rounded-md cursor-pointer">
         Back to Equipments
       </Link>
     </div>
