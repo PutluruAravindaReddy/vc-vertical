@@ -69,45 +69,45 @@ const BooksList = () => {
   return (
     <div>
       {books.map((book) => (
-        <div key={book._id} className="bg-white shadow-md rounded-lg p-4 m-2 max-w-full">
-          <h2 className="text-md sm:text-xl font-bold text-justify mb-2">{book.chapterTitle}</h2>
+        <div key={book._id} className="bg-white dark:bg-[#333333] shadow-md rounded-lg p-4 m-2 max-w-full">
+          <h2 className="text-md sm:text-xl dark:text-[#EDEDED] font-bold text-justify mb-2">{book.chapterTitle}</h2>
           
           {/* Authors */}
-          <p className="text-gray-700 text-[0.8rem] sm:text-[1rem] mb-1">
-            <strong>Authors:</strong> {book.authors.join(', ')}
+          <p className="text-gray-700 dark:text-gray-300 text-[0.8rem] sm:text-[1rem] mb-1">
+            <strong className="dark:text-gray-200">Authors:</strong> {book.authors.join(', ')}
           </p>
           
           {/* Editors (if available) */}
           {book.editors && (
-            <p className="text-gray-700 text-[0.8rem] sm:text-[1rem] mb-1">
-              <strong>Editors:</strong> {book.editors.join(', ')}
+            <p className="text-gray-700 dark:text-gray-300 text-[0.8rem] sm:text-[1rem] mb-1">
+              <strong className="dark:text-gray-200">Editors:</strong> {book.editors.join(', ')}
             </p>
           )}
           
           {/* Book Title */}
-          <p className="text-gray-700 text-[0.8rem] sm:text-[1rem] mb-1">
-            <strong>Book Title:</strong> {book.bookTitle}
+          <p className="text-gray-700 dark:text-gray-300 text-[0.8rem] sm:text-[1rem] mb-1">
+            <strong className="dark:text-gray-200">Book Title:</strong> {book.bookTitle}
           </p>
           
           {/* Publisher */}
-          <p className="text-gray-700 text-[0.8rem] sm:text-[1rem] mb-1">
-            <strong>Publisher:</strong> {book.publisher}
+          <p className="text-gray-700 dark:text-gray-300 text-[0.8rem] sm:text-[1rem] mb-1">
+            <strong className="dark:text-gray-200">Publisher:</strong> {book.publisher}
           </p>
           
           {/* Publication Year */}
-          <p className="text-gray-700 text-[0.8rem] sm:text-[1rem] mb-1">
-            <strong>Publication Year:</strong> {book.publicationYear}
+          <p className="text-gray-700 dark:text-gray-300 text-[0.8rem] sm:text-[1rem] mb-1">
+            <strong className="dark:text-gray-200">Publication Year:</strong> {book.publicationYear}
           </p>
           
           {/* Pages */}
-          <p className="text-gray-700 text-[0.8rem] sm:text-[1rem] mb-1">
-            <strong>Pages:</strong> {book.pages}
+          <p className="text-gray-700 dark:text-gray-300 text-[0.8rem] sm:text-[1rem] mb-1">
+            <strong className="dark:text-gray-200">Pages:</strong> {book.pages}
           </p>
           
           {/* DOI (if available) */}
           {book.DOI && (
-            <p className="text-gray-700 text-[0.8rem] sm:text-[1rem] mb-1">
-              <strong>DOI:</strong>{' '}
+            <p className="text-gray-700 dark:text-gray-300 text-[0.8rem] sm:text-[1rem] mb-1">
+              <strong className="dark:text-gray-200">DOI:</strong>{' '}
               <a href={book.DOI} target="_blank" rel="noopener noreferrer">
                 {book.DOI}
               </a>

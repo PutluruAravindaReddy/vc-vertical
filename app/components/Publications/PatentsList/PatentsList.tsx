@@ -68,55 +68,55 @@ const PatentsList = () => {
   return (
     <div className="flex flex-col flex-wrap justify-center">
       {patents.map((patent) => (
-        <div key={patent._id} className="bg-white shadow-md rounded-lg p-4 m-2 max-w-full">
-          <h2 className="text-md sm:text-xl text-justify	 font-bold mb-2">{patent.title}</h2>
+        <div key={patent._id} className="bg-white dark:bg-[#333333] shadow-md rounded-lg p-4 m-2 max-w-full">
+          <h2 className="text-md sm:text-xl text-justify dark:text-[#EDEDED]	 font-bold mb-2">{patent.title}</h2>
 
           {patent.faculty && (
-            <p className="text-gray-700 text-[0.8rem] sm:text-[1rem] mb-1">
-              <strong>Faculty:</strong> {patent.faculty}
+            <p className="text-gray-700 dark:text-gray-300 text-[0.8rem] sm:text-[1rem] mb-1">
+              <strong className="dark:text-gray-200">Faculty:</strong> {patent.faculty}
             </p>
           )}
           
           {/* Inventors */}
           {patent.inventors && patent.inventors.length > 0 && (
-            <p className="text-gray-700 text-[0.8rem] sm:text-[1rem] mb-1">
-              <strong>Inventors:</strong> {patent.inventors.join(', ')}
+            <p className="text-gray-700 dark:text-gray-300 text-[0.8rem] sm:text-[1rem] mb-1">
+              <strong className="dark:text-gray-200">Inventors:</strong> {patent.inventors.join(', ')}
             </p>
           )}
           
           {/* Journal */}
           {patent.journal && (
-            <p className="text-gray-700 text-[0.8rem] sm:text-[1rem] mb-1">
-              <strong>Journal:</strong> {patent.journal}
+            <p className="text-gray-700 dark:text-gray-300 text-[0.8rem] sm:text-[1rem] mb-1">
+              <strong className="dark:text-gray-200">Journal:</strong> {patent.journal}
             </p>
           )}
           
           {/* Application Number */}
           {patent.applicationNumber && (
-            <p className="text-gray-700 text-[0.8rem] sm:text-[1rem] mb-1">
-              <strong>Application Number:</strong> {patent.applicationNumber}
+            <p className="text-gray-700 dark:text-gray-300 text-[0.8rem] sm:text-[1rem] mb-1">
+              <strong className="dark:text-gray-200">Application Number:</strong> {patent.applicationNumber}
             </p>
           )}
           
           {/* Dates */}
-          <p className="text-gray-700 text-[0.8rem] sm:text-[1rem] mb-1">
-            {patent.date && <><strong>Date:</strong> {patent.date}<br /></>}
-            {patent.dateOfFiling && <><strong>Date of Filing:</strong> {patent.dateOfFiling}<br /></>}
-            {patent.publicationDate && <><strong>Publication Date:</strong> {patent.publicationDate}<br /></>}
-            {patent.dateOfGrant && <><strong>Date of Grant:</strong> {patent.dateOfGrant}<br /></>}
+          <p className="text-gray-700 dark:text-gray-300 text-[0.8rem] sm:text-[1rem] mb-1">
+            {patent.date && <><strong className="dark:text-gray-200">Date:</strong> {patent.date}<br /></>}
+            {patent.dateOfFiling && <><strong className="dark:text-gray-200">Date of Filing:</strong> {patent.dateOfFiling}<br /></>}
+            {patent.publicationDate && <><strong className="dark:text-gray-200">Publication Date:</strong> {patent.publicationDate}<br /></>}
+            {patent.dateOfGrant && <><strong className="dark:text-gray-200">Date of Grant:</strong> {patent.dateOfGrant}<br /></>}
           </p>
           
           {/* Design Number */}
           {patent.designNumber && (
-            <p className="text-gray-700 text-[0.8rem] sm:text-[1rem] mb-1">
-              <strong>Design Number:</strong> {patent.designNumber}
+            <p className="text-gray-700 dark:text-gray-300 text-[0.8rem] sm:text-[1rem] mb-1">
+              <strong className="dark:text-gray-200">Design Number:</strong> {patent.designNumber}
             </p>
           )}
           
           {/* Patent Office */}
           {patent.patentOffice && (
-            <p className="text-gray-700 text-[0.8rem] sm:text-[1rem] mb-1">
-              <strong>Patent Office:</strong> {patent.patentOffice}
+            <p className="text-gray-700 dark:text-gray-300 text-[0.8rem] sm:text-[1rem] mb-1">
+              <strong className="dark:text-gray-200">Patent Office:</strong> {patent.patentOffice}
             </p>
           )}
           

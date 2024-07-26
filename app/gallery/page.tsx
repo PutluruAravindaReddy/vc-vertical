@@ -38,17 +38,12 @@ export const metadata : Metadata= {
 
 export default function Home() {
   return (
-    <html>
-      <head>
-
-      </head>
-      <body>
+    <div className='dark:bg-black'>
         <NavBar/>
 
         <Gallery/>
 
         <Footer/>
-      </body>
-    </html>
+    </div>
   );
 }

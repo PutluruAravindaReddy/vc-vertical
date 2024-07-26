@@ -226,22 +226,22 @@ const Eventspage = () => {
       {events.map((event) => (
         <div
           key={event._id}
-          className="bg-white shadow-md rounded-lg p-6 mb-6 w-full"
+          className="bg-white dark:bg-slate-900 shadow-md rounded-lg p-6 mb-6 w-full hover:scale-102 dark:hover:border-white hover:border-black hover:border hover:border-solid"
         >
-          <h2 className="text-[0.8rem] sm:text-xl font-semibold mb-2">
+          <h2 className="text-[0.8rem] dark:text-white sm:text-xl font-semibold mb-2">
             {event.title}
           </h2>
-          <p className="text-sm sm:text-md text-gray-600 font-bold sm:mb-2">
+          <p className="text-sm sm:text-md text-gray-600 dark:text-gray-400 font-bold sm:mb-2">
             {event.description}
           </p>
-          <p className="text-sm sm:text-md text-gray-500 sm:mb-2">
-            <span className="font-semibold">Date:</span> {event.date}
+          <p className="text-sm sm:text-md dark:text-gray-300 text-gray-500 sm:mb-2">
+            <span className="dark:text-gray-200 font-semibold">Date:</span> {event.date}
           </p>
-          <p className="text-sm sm:text-md text-gray-500 sm:mb-2">
-            <span className="font-semibold">Organizer:</span> {event.organizer}
+          <p className="text-sm dark:text-gray-300 sm:text-md text-gray-500 sm:mb-2">
+            <span className="dark:text-gray-200 font-semibold">Organizer:</span> {event.organizer}
           </p>
-          <p className="text-sm sm:text-md text-gray-500 sm:mb-2">
-            <span className="font-semibold">Location:</span> {event.location}
+          <p className="text-sm dark:text-gray-300 sm:text-md text-gray-500 sm:mb-2">
+            <span className="dark:text-gray-200 font-semibold">Location:</span> {event.location}
           </p>
           <div className="flex flex-col justify-center mt-3 sm:mt-4">
             <div className="grid w-full grid-cols-4 gap-2 sm:gap-4">

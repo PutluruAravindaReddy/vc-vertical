@@ -96,7 +96,7 @@ const Faculty = () => {
         </h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 items-center gap-6 md:gap-10">
           {tasks.map((task) => (
-            <div key={task._id} className="size-full bg-white shadow-lg rounded-lg p-5 dark:bg-slate-900 hover:scale-105 hover:border-black hover:text-blue hover:border hover:border-solid">
+            <div key={task._id} className="size-full bg-white shadow-lg rounded-lg p-5 dark:bg-slate-900 hover:scale-105 dark:hover:border-white hover:border-black hover:text-blue hover:border hover:border-solid">
               <div className="flex items-center gap-x-4 mb-3">
                 <div className="inline-flex justify-center items-center size-[82px] hover:scale-105 rounded-full border-4 border-blue-50 bg-blue dark:border-blue-900 dark:bg-blue-800">
                   <img

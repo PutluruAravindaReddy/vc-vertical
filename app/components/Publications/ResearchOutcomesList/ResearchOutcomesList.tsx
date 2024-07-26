@@ -59,17 +59,17 @@ const ResearchOutcomesList = () => {
   return (
     <div>
       {researchOutcomes.map((outcome) => (
-        <div key={outcome._id} className="bg-white shadow-md rounded-lg p-4 m-2 max-w-full">
-          <h2 className="text-md sm:text-xl font-bold text-justify mb-2">{outcome.initiative}</h2>
+        <div key={outcome._id} className="bg-white dark:bg-[#333333] shadow-md rounded-lg p-4 m-2 max-w-full">
+          <h2 className="text-md sm:text-xl  dark:text-[#EDEDED] font-bold text-justify mb-2">{outcome.initiative}</h2>
           
           {/* Initiators */}
-          <p className="text-gray-700 text-[0.8rem] sm:text-[1rem] mb-1">
-            <strong>Initiators:</strong> {outcome.initiators.join(', ')}
+          <p className="text-gray-700 dark:text-gray-300  text-[0.8rem] sm:text-[1rem] mb-1">
+            <strong className='dark:text-gray-200 '>Initiators:</strong> {outcome.initiators.join(', ')}
           </p>
           
           {/* Activities */}
-          <p className="text-gray-700 text-[0.8rem] sm:text-[1rem] mb-1">
-            <strong>Activities:</strong> {outcome.activities.join(', ')}
+          <p className="text-gray-700 dark:text-gray-300  text-[0.8rem] sm:text-[1rem] mb-1">
+            <strong className='dark:text-gray-200 '>Activities:</strong> {outcome.activities.join(', ')}
           </p>
           {session?.user?.name && (
             <div className="flex items-center justify-center mx-4 mb-2 space-x-2">

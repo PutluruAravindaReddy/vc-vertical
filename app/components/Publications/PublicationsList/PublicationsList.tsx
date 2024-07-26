@@ -76,43 +76,43 @@ const PublicationsList = () => {
       {publications.map((publication) => (
         <div
           key={publication._id}
-          className="bg-white shadow-md rounded-lg p-4 m-2 max-w-full"
+          className="bg-white dark:bg-[#333333] shadow-md rounded-lg p-4 m-2 max-w-full"
         >
-          <h2 className="text-md sm:text-xl font-bold text-justify	 mb-2">
+          <h2 className="text-md dark:text-[#EDEDED] sm:text-xl font-bold text-justify	 mb-2">
             {publication.title}
           </h2>
-          <p className="text-gray-700 text-[0.8rem] sm:text-[1rem] mb-1">
-            <strong>Authors:</strong> {publication.authors.join(", ")}
+          <p className="text-gray-700 dark:text-gray-300 text-[0.8rem] sm:text-[1rem] mb-1">
+            <strong className="dark:text-gray-200">Authors:</strong> {publication.authors.join(", ")}
           </p>
           {publication.journal && (
-            <p className="text-gray-700 text-[0.8rem] sm:text-[1rem] mb-1">
-              <strong>Journal:</strong> {publication.journal}
+            <p className="text-gray-700 dark:text-gray-300 text-[0.8rem] sm:text-[1rem] mb-1">
+              <strong  className="dark:text-gray-200">Journal:</strong> {publication.journal}
             </p>
           )}
           {publication.year && (
-            <p className="text-gray-700 text-[0.8rem] sm:text-[1rem] mb-1">
-              <strong>Year:</strong> {publication.year}
+            <p className="text-gray-700 dark:text-gray-300 text-[0.8rem] sm:text-[1rem] mb-1">
+              <strong  className="dark:text-gray-200">Year:</strong> {publication.year}
             </p>
           )}
           {publication.pages && (
-            <p className="text-gray-700 text-[0.8rem] sm:text-[1rem] mb-1">
-              <strong>Pages:</strong> {publication.pages}
+            <p className="text-gray-700 dark:text-gray-300 text-[0.8rem] sm:text-[1rem] mb-1">
+              <strong  className="dark:text-gray-200">Pages:</strong> {publication.pages}
             </p>
           )}
           {publication.impactFactor && (
-            <p className="text-gray-700 text-[0.8rem] sm:text-[1rem] mb-1">
-              <strong>Impact Factor:</strong> {publication.impactFactor}
+            <p className="text-gray-700 dark:text-gray-300 text-[0.8rem] sm:text-[1rem] mb-1">
+              <strong  className="dark:text-gray-200">Impact Factor:</strong> {publication.impactFactor}
             </p>
           )}
           {publication.SNIP && (
-            <p className="text-gray-700 text-[0.8rem] sm:text-[1rem] mb-1">
-              <strong>SNIP:</strong>
+            <p className="text-gray-700 dark:text-gray-300 text-[0.8rem] sm:text-[1rem] mb-1">
+              <strong  className="dark:text-gray-200">SNIP:</strong>
               {publication.SNIP}
             </p>
           )}
           {publication.DOI && (
-            <p className="text-gray-700 text-[0.8rem] sm:text-[1rem] mb-1">
-              <strong>DOI:</strong>{" "}
+            <p className="text-gray-700 dark:text-gray-300 text-[0.8rem] sm:text-[1rem] mb-1">
+              <strong  className="dark:text-gray-200">DOI:</strong>{" "}
               <a
                 href={publication.DOI}
                 target="_blank"
@@ -123,8 +123,8 @@ const PublicationsList = () => {
             </p>
           )}
           {publication.date && (
-            <p className="text-gray-700 text-[0.8rem] sm:text-[1rem] mb-1">
-              <strong>Date:</strong>
+            <p className="text-gray-700 dark:text-gray-300 text-[0.8rem] sm:text-[1rem] mb-1">
+              <strong  className="dark:text-gray-200">Date:</strong>
               {publication.date}
             </p>
           )}

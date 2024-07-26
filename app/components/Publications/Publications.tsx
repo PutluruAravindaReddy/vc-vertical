@@ -356,8 +356,8 @@ import ResearchOutcomesList from "./ResearchOutcomesList/ResearchOutcomesList";
 
 const PublicationsPage: React.FC = () => {
   return (
-    <div className=" max-w-[85rem] px-4 py-5 sm:px-6 lg:px-8 lg:py-1 mx-auto p-8 mb-5">
-      <h2 className="text-2xl text-gray-800 font-bold lg:text-[2rem] sm:py-3 dark:text-white py-0">
+    <div className=" max-w-[85rem] px-4 py-5  sm:px-6 lg:px-8 lg:py-1 mx-auto p-8 mb-5">
+      <h2 className="text-2xl text-gray-800 font-bold lg:text-[2rem] sm:py-3 dark:text-[#FFFFFF] py-0">
         <span className="bg-clip-text bg-gradient-to-tl from-blue to-violet-600 text-transparent">
           Publications
         </span>
@@ -365,32 +365,32 @@ const PublicationsPage: React.FC = () => {
 
       <PublicationsList/>
 
-      <h2 className="text-xl text-gray-800 font-bold lg:text-[2rem]  py-0">
+      <h2 className="text-xl text-gray-800 font-bold lg:text-[2rem]  dark:text-[#FFFFFF] py-0">
         Details of Patents
       </h2>
       <PatentsList />
 
-      <h2 className="text-xl text-gray-800 font-bold lg:text-[2rem]  py-0">
+      <h2 className="text-xl text-gray-800 font-bold lg:text-[2rem]  dark:text-[#FFFFFF] py-0">
         Details of Books/Book chapters
       </h2>
       <BooksList />
 
-      <h2 className="text-xl text-gray-800 font-bold lg:text-[2rem]  py-0">
+      <h2 className="text-xl text-gray-800 font-bold lg:text-[2rem]  dark:text-[#FFFFFF] py-0">
         Details of Certificate courses
       </h2>
       <CertificateCoursesList />
 
-      <h2 className="text-xl text-gray-800 font-bold lg:text-[2rem]  py-0">
+      <h2 className="text-xl text-gray-800 font-bold lg:text-[2rem] dark:text-[#FFFFFF]  py-0">
         FDP/STTP/Workshop organized
       </h2>
       <FDPSTTPWorkshopsList />
 
-      <h2 className="text-xl text-gray-800 font-bold lg:text-[2rem]  py-0">
+      <h2 className="text-xl text-gray-800 font-bold lg:text-[2rem]  dark:text-[#FFFFFF] py-0">
         Research Proposals
       </h2>
       <ResearchProposalsList/>
 
-      <h2 className="text-xl text-gray-800 font-bold lg:text-[2rem]  py-0">
+      <h2 className="text-xl text-gray-800 font-bold lg:text-[2rem]  dark:text-[#FFFFFF] py-0">
         Research Outcomes
       </h2>
       <ResearchOutcomesList />

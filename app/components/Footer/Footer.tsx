@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import React, { useState } from "react";
 // import Image from "next/image";
 
@@ -56,9 +57,9 @@ const Footer = () => {
   return (
     <>
       {/* ========== FOOTER ========== */}
-      <hr />
+      <hr className="text-gray-700"/>
 
-      <footer className="mt-auto bg-gradient-to-tl from-[#EFF6FF] via-[#DBEAFE] to-[#EFF6FF] w-full py-4 px-4 sm:px-6 lg:px-8 mx-auto dark:bg-black">
+      <footer className="mt-auto bg-gradient-to-tl from-[#EFF6FF] via-[#DBEAFE] to-[#EFF6FF] w-full py-4 px-4 sm:px-6 lg:px-8 mx-auto dark:bg-gradient-to-tr dark:from-black dark:via-black dark:to-black">
         {/* <div className="overflow-hidden w-full my-10">
           <div className="marquee flex flex-row">
             <img
@@ -110,27 +111,27 @@ const Footer = () => {
         <div className="flex flex-wrap justify-center mt-10 mb-4">
           <div className="grid grid-cols-6 lg:grid-cols-5 gap-3 lg:gap-6">
             <div className="col-span-2 lg:col-span-1">
-              <h4 className="  text-[1rem]  text-black text-center dark:text-white">
+              <Link href="/faculty" className="  text-[1rem]  text-black text-center dark:text-gray-300">
                 Faculty
-              </h4>
+              </Link>
             </div>
             <div className="col-span-2 lg:col-span-1">
-              <h4 className="  text-[1rem]   text-black text-center dark:text-white">
+              <Link href="/publications" className="  text-[1rem]   text-black text-center dark:text-gray-300">
                 Publications
-              </h4>
+              </Link>
             </div>
             <div className="col-span-2 lg:col-span-1">
-              <h4 className="text-[1rem]  text-black text-center dark:text-white">
+              <Link href="/gallery"  className="text-[1rem]  text-black text-center dark:text-gray-300">
                 Gallery
-              </h4>
+              </Link>
             </div>
             <div className="col-span-3 lg:col-span-1 ml-[10px] lg:ml-[0]">
-              <h4 className="text-[1rem]   text-black text-center dark:text-white">
+              <Link href="/events"  className="text-[1rem]   text-black text-center dark:text-gray-300">
                 Events
-              </h4>
+              </Link>
             </div>
             <div className="col-span-3 lg:col-span-1 ml-[-10px] lg:ml[0]">
-              <h4 className="text-[1rem]   text-black text-center dark:text-white">
+              <h4 className="text-[1rem]   text-black text-center dark:text-gray-300">
                 FAQs
               </h4>
             </div>
@@ -140,27 +141,27 @@ const Footer = () => {
         <div className="flex flex-wrap justify-center mb-7">
           <div className="grid grid-cols-6 lg:grid-cols-5 gap-2 lg:gap-6">
             <div className="col-span-2 lg:col-span-1">
-              <h4 className="text-[0.8rem] lg:text-[1rem]  text-black text-center dark:text-white">
+              <Link href="/VCLAB/Members"  className="text-[0.8rem] lg:text-[1rem]  text-black text-center dark:text-gray-300">
                 Lab Members
-              </h4>
+              </Link>
             </div>
             <div className="col-span-2 lg:col-span-1">
-              <h4 className="text-[0.8rem] lg:text-[1rem]   text-black text-center dark:text-white">
+              <Link href="/VCLAB/Events"  className="text-[0.8rem] lg:text-[1rem]   text-black text-center dark:text-gray-300">
                 Lab Events
-              </h4>
+              </Link>
             </div>
             <div className="col-span-2 lg:col-span-1">
-              <h4 className="text-[0.8rem] lg:text-[1rem]  text-black text-center dark:text-white">
+              <Link href="/VCLAB/Projects"  className="text-[0.8rem] lg:text-[1rem]  text-black text-center dark:text-gray-300">
                 Lab Projects
-              </h4>
+              </Link>
             </div>
             <div className="col-span-3 lg:col-span-1 ml-[10px] lg:ml-[0]">
-              <h4 className="text-[0.8rem] lg:text-[1rem]  text-black text-center dark:text-white">
+              <Link href="/VCLAB/Equipments"  className="text-[0.8rem] lg:text-[1rem]  text-black text-center dark:text-gray-300">
                 Lab Equipments
-              </h4>
+              </Link>
             </div>
             <div className="col-span-3 lg:col-span-1 ml-[-10px] lg:ml[0]">
-              <h4 className="text-[0.8rem] lg:text-[1rem]  text-black text-center dark:text-white">
+              <h4 className="text-[0.8rem] lg:text-[1rem]  text-black text-center dark:text-gray-300">
                 Contact us
               </h4>
             </div>
@@ -172,18 +173,23 @@ const Footer = () => {
             <div className="inline-flex justify-center items-center">
               <img
                 src="/img/Logo/srm_logo.svg"
-                alt="Hacktrix-Logo"
-                className="w-30 h-[2rem] lg:w-33 lg:h-[2.5rem]"
+                alt="SRM logo"
+                className="w-30 h-[2rem] lg:w-33 lg:h-[2.5rem] dark:hidden"
+              />
+                            <img
+                src="/img/Logo/srm_logo_dark.svg"
+                alt="SRM logo"
+                className="w-30 h-[2rem] lg:w-33 lg:h-[2.5rem] hidden dark:block"
               />
               <img
                 src="/img/Logo/vc_logo.jpg"
-                alt="Hacktrix-Logo"
+                alt="VCLAB Logo"
                 className=" w-[2.6rem] h-[2.5rem] lg:w-[3rem] lg:h-[3rem] rounded-[50%] "
               />
             </div>
             <div className="mt-3">
               {/* <p className="text-gray-500">We're part of the <a class="font-semibold text-blue-600 hover:text-blue-700 dark:text-blue-500 dark:hover:text-blue-400" href="#">Htmlstream</a> family.</p> */}
-              <p className="text-gray-500">
+              <p className="text-gray-500 dark:text-gray-300 text-center">
                 © 2024 SRM Institute of Science and Technology. All Rights
                 Reserved.
               </p>

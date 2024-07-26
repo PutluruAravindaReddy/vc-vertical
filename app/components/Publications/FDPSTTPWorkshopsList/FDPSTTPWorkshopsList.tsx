@@ -72,27 +72,27 @@ const FDPSTTPWorkshopsList = () => {
       {workshops.map((workshop) => (
         <div
           key={workshop._id}
-          className="bg-white shadow-md rounded-lg p-4 m-2 max-w-full"
+          className="bg-white dark:bg-[#333333] shadow-md rounded-lg p-4 m-2 max-w-full"
         >
-          <h2 className="text-md sm:text-xl font-bold text-justify mb-2">
+          <h2 className="text-md sm:text-xl dark:text-[#EDEDED] font-bold text-justify mb-2">
             {workshop.title}
           </h2>
 
           {/* Organizers */}
-          <p className="text-gray-700 text-[0.8rem] sm:text-[1rem] mb-1">
-            <strong>Organizers:</strong> {workshop.organizers.join(", ")}
+          <p className="text-gray-700 dark:text-gray-300 text-[0.8rem] sm:text-[1rem] mb-1">
+            <strong className="dark:text-gray-200">Organizers:</strong> {workshop.organizers.join(", ")}
           </p>
 
           {/* Date */}
-          <p className="text-gray-700 text-[0.8rem] sm:text-[1rem] mb-1">
-            <strong>Date:</strong> {workshop.startDate}
+          <p className="text-gray-700 dark:text-gray-300 text-[0.8rem] sm:text-[1rem] mb-1">
+            <strong className="dark:text-gray-200">Date:</strong> {workshop.startDate}
             {workshop.endDate && ` - ${workshop.endDate}`}
           </p>
 
           {/* Location (if available) */}
           {workshop.location && (
-            <p className="text-gray-700 text-[0.8rem] sm:text-[1rem] mb-1">
-              <strong>Location:</strong> {workshop.location}
+            <p className="text-gray-700 dark:text-gray-300 text-[0.8rem] sm:text-[1rem] mb-1">
+              <strong className="dark:text-gray-200">Location:</strong> {workshop.location}
             </p>
           )}
 

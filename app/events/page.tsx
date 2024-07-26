@@ -5,10 +5,10 @@ import Eventspage from '../components/Eventspage/Eventspage';
 
 export default function Home() {
     return (
-      <>
+      <div className='dark:bg-black'>
       <NavBar/>
       <Eventspage/>
       <Footer/>
-      </>
+      </div>
     );
   }

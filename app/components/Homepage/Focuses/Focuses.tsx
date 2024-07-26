@@ -74,7 +74,7 @@ const Focuses = () => {
 
   return (
     <div className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
-      <h2 className="text-2xl text-gray-800 font-bold lg:text-[2rem] dark:text-white py-6">
+      <h2 className="text-2xl text-gray-800 font-bold lg:text-[2rem] dark:text-[#FFFFFF] py-6">
         <span className="bg-clip-text bg-gradient-to-tl from-blue to-violet-600 text-transparent">
           Particularly
         </span>
@@ -86,7 +86,7 @@ const Focuses = () => {
           {tasks.map((task) => (
             <div
               key={task._id}
-              className="group flex flex-col h-full border border-base cursor-pointer border-black border-solid shadow-sm rounded-xl overflow-hidden transition duration-300 transform hover:scale-104 hover:shadow-2xl hover:border-[0.1rem] hover:border-black hover:border-gradient hover:border-opacity-100"
+              className=" dark:bg-[#333333] dark:hover:border-white hover:border-gradient dark:hover:border-opacity-100 group flex flex-col h-full border border-base cursor-pointer border-black border-solid shadow-sm rounded-xl overflow-hidden transition duration-300 transform hover:scale-104 hover:shadow-2xl hover:border-[0.1rem] hover:border-black hover:border-gradient hover:border-opacity-100"
             >
               <div className="h-48 sm:h-52 flex justify-center items-center bg-blue rounded-t-xl">
                 <img
@@ -96,10 +96,10 @@ const Focuses = () => {
                 />
               </div>
               <div className="p-4 md:p-6">
-                <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-300 dark:hover:text-white">
+                <h3 className="text-xl font-semibold text-gray-800 dark:text-[#FFFFFF] dark:hover:text-white">
                   {task.title}
                 </h3>
-                <p className="mt-3 text-gray-500 text-justify">
+                <p className="mt-3 text-gray-500 dark:text-[#888888] text-justify">
                   {task.description}
                 </p>
               </div>

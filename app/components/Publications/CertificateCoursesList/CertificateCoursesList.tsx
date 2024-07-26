@@ -63,35 +63,35 @@ const CertificateCoursesList = () => {
   return (
     <div>
       {courses.map((course) => (
-        <div key={course._id} className="bg-white shadow-md rounded-lg p-4 m-2 max-w-full">
-          <h2 className="text-md sm:text-xl font-bold text-justify mb-2">{course.courseName}</h2>
+        <div key={course._id} className="bg-white dark:bg-[#333333] shadow-md rounded-lg p-4 m-2 max-w-full">
+          <h2 className="text-md sm:text-xl dark:text-[#EDEDED] font-bold text-justify mb-2">{course.courseName}</h2>
           
           {/* Participants */}
-          <p className="text-gray-700 text-[0.8rem] sm:text-[1rem] mb-1">
-            <strong>Participants:</strong> {course.faculty.join(', ')}
+          <p className="text-gray-700 dark:text-gray-300 text-[0.8rem] sm:text-[1rem] mb-1">
+            <strong className='dark:text-gray-200'>Participants:</strong> {course.faculty.join(', ')}
           </p>
           
           {/* Completion Date */}
-          <p className="text-gray-700 text-[0.8rem] sm:text-[1rem] mb-1">
-            <strong>Completion Date:</strong> {course.completionDate}
+          <p className="text-gray-700 dark:text-gray-300 text-[0.8rem] sm:text-[1rem] mb-1">
+            <strong className='dark:text-gray-200'>Completion Date:</strong> {course.completionDate}
           </p>
           
           {/* Platform */}
-          <p className="text-gray-700 text-[0.8rem] sm:text-[1rem] mb-1">
-            <strong>Platform:</strong> {course.platform}
+          <p className="text-gray-700 dark:text-gray-300 text-[0.8rem] sm:text-[1rem] mb-1">
+            <strong className='dark:text-gray-200'>Platform:</strong> {course.platform}
           </p>
           
           {/* Duration (if available) */}
           {course.duration && (
-            <p className="text-gray-700 text-[0.8rem] sm:text-[1rem] mb-1">
-              <strong>Duration:</strong> {course.duration}
+            <p className="text-gray-700 dark:text-gray-300 text-[0.8rem] sm:text-[1rem] mb-1">
+              <strong className='dark:text-gray-200'>Duration:</strong> {course.duration}
             </p>
           )}
           
           {/* Badge Earned (if available) */}
           {course.badgeEarned && (
-            <p className="text-gray-700 text-[0.8rem] sm:text-[1rem] mb-1">
-              <strong>Badge Earned:</strong> {course.badgeEarned}
+            <p className="text-gray-700 dark:text-gray-300 text-[0.8rem] sm:text-[1rem] mb-1">
+              <strong className='dark:text-gray-200'>Badge Earned:</strong> {course.badgeEarned}
             </p>
           )}
           {session?.user?.name && (

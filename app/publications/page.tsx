@@ -50,17 +50,12 @@ export const metadata : Metadata = {
 
 export default function Home() {
   return (
-    <html>
-      <head>
-
-      </head>
-      <body>
+      <div className='dark:bg-black'>
         <NavBar/>
 
         <Publications/>
 
         <Footer/>
-      </body>
-    </html>
+      </div>
   );
 }
