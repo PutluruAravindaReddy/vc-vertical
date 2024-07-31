@@ -242,9 +242,12 @@ export default function NavBar() {
   ].includes(pathname);
 
   return (
-    <header className="flex flex-wrap sm:justify-start sm:flex-col z-50 w-full border-b border-gray-400 text-[1.1rem] py-1 sticky top-0 bg-gradient-to-tl from-[#EFF6FF] via-[#DBEAFE] to-[#EFF6FF] dark:bg-gradient-to-tr dark:from-black dark:via-black dark:to-black">
+    <header className={`flex flex-wrap sm:justify-start sm:flex-col z-50 w-full border-b border-gray-400 text-[1.1rem] py-1 bg-gradient-to-tl from-[#EFF6FF] via-[#DBEAFE] to-[#EFF6FF] dark:bg-gradient-to-tr dark:from-black dark:via-black dark:to-black
+    ${pathname==="/"?"fixed":"sticky"} top-0
+    `}
+    >
       <nav
-        className="relative max-w-[85rem] w-full mx-auto px-4 sm:flex sm:items-center sm:justify-between sm:px-6 lg:px-8"
+        className="relative max-w-[85rem]    w-full mx-auto px-4 sm:flex sm:items-center sm:justify-between sm:px-6 lg:px-8"
         aria-label="Global"
       >
         <div className="flex items-center justify-between">

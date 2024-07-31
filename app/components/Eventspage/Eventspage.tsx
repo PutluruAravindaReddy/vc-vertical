@@ -143,6 +143,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useSession } from "next-auth/react";
+import Image from "next/image";
 
 interface Event {
   _id: string;
@@ -244,7 +245,7 @@ const Eventspage = () => {
             <span className="dark:text-gray-200 font-semibold">Location:</span> {event.location}
           </p>
           <div className="flex flex-col justify-center mt-3 sm:mt-4">
-            <div className="grid w-full grid-cols-4 gap-2 sm:gap-4">
+            <div className="grid w-full grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 sm:gap-4">
               {event.images.map((image, index) => (
                 <div key={index} className="aspect-w-1 aspect-h-1">
                   <img

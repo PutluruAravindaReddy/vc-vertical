@@ -60,7 +60,7 @@ export async function middleware(request: NextRequest) {
   try {
     const token = await getToken({ req: request, secret: process.env.JWT_SECRET });
 
-    console.log('Middleware token:', token);
+    // console.log('Middleware token:', token);
 
     if (request.nextUrl.pathname.startsWith('/Forms')) {
       if (!token || token.name !== process.env.ADMIN_NAME) {
@@ -95,6 +95,7 @@ export const config = {
     '/api/EventsRoute/:path*',
     '/api/FacultyRoute/:path*',
     '/api/LabFocus/:path*',
+    '/api/UpcomingEvents/:path*',
     '/api/PublicationsRoute/:path*',
     '/api/send/:path*',
     '/api/subscribe/:path*',

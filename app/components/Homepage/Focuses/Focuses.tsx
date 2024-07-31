@@ -99,7 +99,7 @@ const Focuses = () => {
                 <h3 className="text-xl font-semibold text-gray-800 dark:text-[#FFFFFF] dark:hover:text-white">
                   {task.title}
                 </h3>
-                <p className="mt-3 text-gray-500 dark:text-[#888888] text-justify">
+                <p className="mt-3 text-gray-300 dark:text-[#888888] text-justify">
                   {task.description}
                 </p>
               </div>
