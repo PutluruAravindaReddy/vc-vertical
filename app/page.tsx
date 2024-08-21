@@ -9,7 +9,7 @@ import { useSession } from "next-auth/react";
 
 export const metadata: Metadata = {
   title:
-    "Home - Visual Computing Vertical SRM Institute of Science and Technology",
+    "Home - Visual Computing Vertical | SRM Institute of Science and Technology",
   description:
     "Explore the Computer Vision vertical and the Visual Computing Lab at SRM Institute of Science and Technology, where faculty and students collaborate on innovative CV projects.",
   twitter: {
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     images: ["/img/Logo/srm_logo.svg"],
   },
   openGraph: {
-    url: "https://vc-vertical.vercel.app",
+    url: "https://vcvertical-srmist.vercel.app",
     title: "Home - SRM Institute of Science and Technology",
     description:
       "Explore the Computer Vision vertical and the Visual Computing Lab at SRM Institute of Science and Technology, where faculty and students collaborate on innovative CV projects.",
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     ],
     siteName: "SRM Institute of Science and Technology",
   },
-  metadataBase: new URL("https://vc-vertical.vercel.app"),
+  metadataBase: new URL("https://vcvertical-srmist.vercel.app"),
   themeColor: "#000000",
   keywords: [
     "Computer Vision",

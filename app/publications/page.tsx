@@ -4,7 +4,7 @@ import Footer from '../components/Footer/Footer';
 import Publications from '../components/Publications/Publications';
 
 export const metadata : Metadata = {
-  title: 'Publications and Research - Visual Computing Lab | SRM Institute of Science and Technology',
+  title: 'Publications - Visual Computing Lab | SRM Institute of Science and Technology',
   description: 'Explore publications, patents, books, courses, workshops, research proposals, and outcomes from the Visual Computing Lab at SRM Institute of Science and Technology.',
   twitter: {
     card: 'summary_large_image',

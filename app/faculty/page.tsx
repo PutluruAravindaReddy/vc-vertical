@@ -5,7 +5,7 @@ import Footer from '../components/Footer/Footer';
 import VerticalHead from "../components/Facultypage/VerticalHead/VerticalHead"
 
 export const metadata:Metadata = {
-  title: 'Faculty - SRM Institute of Science and Technology',
+  title: 'Faculty - Visual Computing Vertical | SRM Institute of Science and Technology',
   description: 'Meet the faculty members specializing in Computer Vision at SRM Institute of Science and Technology, dedicated to advancing the field through innovative research and teaching.',
   twitter: {
     card: 'summary_large_image',
