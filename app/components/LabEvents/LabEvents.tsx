@@ -40,7 +40,7 @@ export default function LabEvents() {
         {/* Event Container */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
           {/* Left Side: Event Posters */}
-          <div className="flex flex-row md:flex-col gap-4 items-start">
+          <div className="flex flex-col md:flex-col gap-4 items-start">
             <div
               className="relative cursor-pointer"
               onClick={() => openModal(frontPoster)}
@@ -105,11 +105,10 @@ export default function LabEvents() {
             </div>
 
             {/* Keynote Speakers */}
-            <h3 className="text-lg md:text-xl lg:text-2xl font-semibold mb-4">
+            {/* <h3 className="text-lg md:text-xl lg:text-2xl font-semibold mb-3">
               Keynote Speakers
             </h3>
             <div className="mb-8 grid grid-cols-1 gap-4">
-              {/* Speaker 1 */}
               <div className="flex items-center">
                 <div className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 rounded-full bg-gray-400 dark:bg-gray-700 flex justify-center items-center mr-3">
                   <span className="text-white text-base md:text-lg lg:text-xl">
@@ -125,7 +124,7 @@ export default function LabEvents() {
                   </p>
                 </div>
               </div>
-              {/* Speaker 2 */}
+          
               <div className="flex items-center">
                 <div className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 rounded-full bg-gray-400 dark:bg-gray-700 flex justify-center items-center mr-3">
                   <span className="text-white text-base md:text-lg lg:text-xl">
@@ -141,10 +140,15 @@ export default function LabEvents() {
                   </p>
                 </div>
               </div>
-            </div>
-
+            </div> */}
+            <h3 className="text-lg md:text-xl lg:text-2xl font-semibold mb-2">
+              Objectives
+            </h3>
+            <p className="text-gray-600 dark:text-gray-300 text-sm md:text-base lg:text-lg mb-4">
+            The objective of SUMMIT VC 1.0 is to bring together leading experts, innovators, and enthusiasts in the field of computer vision to explore and advance the transformative potential of this technology.
+                  </p>
             {/* Focus Areas */}
-            <h3 className="text-lg md:text-xl lg:text-2xl font-semibold mb-4">
+            <h3 className="text-lg md:text-xl lg:text-2xl font-semibold mb-2">
               Focus Areas
             </h3>
             <ul className="list-disc pl-5 mb-8">
