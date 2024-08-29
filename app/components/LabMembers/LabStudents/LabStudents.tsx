@@ -330,11 +330,16 @@ const LabStudents: React.FC<LabStudentsProps> = ({ title }) => {
 
   return (
     <>
-      <div className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+      <div className="max-w-[85rem] pt-0 lg:pt-0 px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+      <h2 className="text-2xl text-gray-800 font-bold lg:text-[2rem] dark:text-white py-2">
+          <span className="bg-clip-text bg-gradient-to-tl from-blue to-violet-600 text-transparent">
+            Students 
+          </span>
+        </h2>
         <div className="lg:flex-col lg:justify-start mt-6">
           {/* Grid */}
           <div className="max-w-[79rem] mx-auto text-left mb-3 lg:mb-5">
-            <span className="bg-clip-text text-base font-bold md:text-xl md:leading-tight mt-1 bg-gradient-to-tl from-blue to-violet-600 text-transparent">
+            <span className="bg-clip-text  text-base font-bold md:text-xl md:leading-tight mt-1 bg-[#2563EB]  text-transparent">
               POSE ESTIMATION USING RASPBERRY PI & FACIAL RECOGNITION
             </span>
           </div>
@@ -343,7 +348,7 @@ const LabStudents: React.FC<LabStudentsProps> = ({ title }) => {
         <div className="lg:flex-col lg:justify-start mt-6">
           {/* Grid */}
           <div className="max-w-[79rem] mx-auto text-left mb-3 lg:mb-5">
-            <span className="bg-clip-text text-base font-bold md:text-xl md:leading-tight mt-1 bg-gradient-to-tl from-blue to-violet-600 text-transparent">
+            <span className="bg-clip-text text-base font-bold md:text-xl md:leading-tight mt-1 bg-[#2563EB] from-blue to-violet-600 text-transparent">
               REALTIME WILDLIFE CONSERVATION SYSTEM
             </span>
           </div>
@@ -352,7 +357,7 @@ const LabStudents: React.FC<LabStudentsProps> = ({ title }) => {
         <div className="lg:flex-col lg:justify-start mt-6">
           {/* Grid */}
           <div className="max-w-[79rem] mx-auto text-left mb-3 lg:mb-5">
-            <span className="bg-clip-text text-base font-bold md:text-xl md:leading-tight mt-1 bg-gradient-to-tl from-blue to-violet-600 text-transparent">
+            <span className="bg-clip-text text-base font-bold md:text-xl md:leading-tight mt-1 bg-[#2563EB] from-blue to-violet-600 text-transparent">
               HEALTHSPHERE: TRANSFORMING PATIENT CARE THROUGH AI-INTEGRATED
               DISEASE DETECTION AND COMMUNICATION
             </span>
@@ -362,7 +367,7 @@ const LabStudents: React.FC<LabStudentsProps> = ({ title }) => {
         <div className="lg:flex-col lg:justify-start mt-6">
           {/* Grid */}
           <div className="max-w-[79rem] mx-auto text-left mb-3 lg:mb-5">
-            <span className="bg-clip-text text-base font-bold md:text-xl md:leading-tight mt-1 bg-gradient-to-tl from-blue to-violet-600 text-transparent">
+            <span className="bg-clip-text text-base font-bold md:text-xl md:leading-tight mt-1 bg-[#2563EB] from-blue to-violet-600 text-transparent">
               LANE DETECTION SYSTEM
             </span>
           </div>
@@ -371,7 +376,7 @@ const LabStudents: React.FC<LabStudentsProps> = ({ title }) => {
         <div className="lg:flex-col lg:justify-start mt-6">
           {/* Grid */}
           <div className="max-w-[79rem] mx-auto text-left mb-3 lg:mb-5">
-            <span className="bg-clip-text text-base font-bold md:text-xl md:leading-tight mt-1 bg-gradient-to-tl from-blue to-violet-600 text-transparent">
+            <span className="bg-clip-text text-base font-bold md:text-xl md:leading-tight mt-1 bg-[#2563EB] from-blue to-violet-600 text-transparent">
               VISUAL NEXUS: VC LAB VOICE ASSISTANT
             </span>
           </div>
@@ -380,7 +385,7 @@ const LabStudents: React.FC<LabStudentsProps> = ({ title }) => {
         <div className="lg:flex-col lg:justify-start mt-6">
           {/* Grid */}
           <div className="max-w-[79rem] mx-auto text-left mb-3 lg:mb-5">
-            <span className="bg-clip-text text-base font-bold md:text-xl md:leading-tight mt-1 bg-gradient-to-tl from-blue to-violet-600 text-transparent">
+            <span className="bg-clip-text text-base font-bold md:text-xl md:leading-tight mt-1 bg-[#2563EB] from-blue to-violet-600 text-transparent">
             SMART TRAFFIC DETECTION AND SIGNAL CONTROL MODEL
             </span>
           </div>
@@ -389,7 +394,7 @@ const LabStudents: React.FC<LabStudentsProps> = ({ title }) => {
         <div className="lg:flex-col lg:justify-start mt-6">
           {/* Grid */}
           <div className="max-w-[79rem] mx-auto text-left mb-3 lg:mb-5">
-            <span className="bg-clip-text text-base font-bold md:text-xl md:leading-tight mt-1 bg-gradient-to-tl from-blue to-violet-600 text-transparent">
+            <span className="bg-clip-text text-base font-bold md:text-xl md:leading-tight mt-1 bg-[#2563EB] from-blue to-violet-600 text-transparent">
             VEHICLE CARBON EMISSION ANALYZER
             </span>
           </div>
@@ -398,7 +403,7 @@ const LabStudents: React.FC<LabStudentsProps> = ({ title }) => {
         <div className="lg:flex-col lg:justify-start mt-6">
           {/* Grid */}
           <div className="max-w-[79rem] mx-auto text-left mb-3 lg:mb-5">
-            <span className="bg-clip-text text-base font-bold md:text-xl md:leading-tight mt-1 bg-gradient-to-tl from-blue to-violet-600 text-transparent">
+            <span className="bg-clip-text text-base font-bold md:text-xl md:leading-tight mt-1 bg-[#2563EB] from-blue to-violet-600 text-transparent">
             CROWD ANOMALY DETECTION
             </span>
           </div>
@@ -407,7 +412,7 @@ const LabStudents: React.FC<LabStudentsProps> = ({ title }) => {
         <div className="lg:flex-col lg:justify-start mt-6">
           {/* Grid */}
           <div className="max-w-[79rem] mx-auto text-left mb-3 lg:mb-5">
-            <span className="bg-clip-text text-base font-bold md:text-xl md:leading-tight mt-1 bg-gradient-to-tl from-blue to-violet-600 text-transparent">
+            <span className="bg-clip-text text-base font-bold md:text-xl md:leading-tight mt-1 bg-[#2563EB] from-blue to-violet-600 text-transparent">
             COLLEGE SECURITY GUARD PRESENCE VERIFICATION SYSTEM USING COMPUTER VISION
             </span>
           </div>
@@ -416,7 +421,7 @@ const LabStudents: React.FC<LabStudentsProps> = ({ title }) => {
         <div className="lg:flex-col lg:justify-start mt-6">
           {/* Grid */}
           <div className="max-w-[79rem] mx-auto text-left mb-3 lg:mb-5">
-            <span className="bg-clip-text text-base font-bold md:text-xl md:leading-tight mt-1 bg-gradient-to-tl from-blue to-violet-600 text-transparent">
+            <span className="bg-clip-text text-base font-bold md:text-xl md:leading-tight mt-1 bg-[#2563EB] from-blue to-violet-600 text-transparent">
             PREDICTION MODEL OF PEST OUTBREAK BASED ON PEST POPULATION AND ABIOTIC DATA
             </span>
           </div>
@@ -425,7 +430,7 @@ const LabStudents: React.FC<LabStudentsProps> = ({ title }) => {
         <div className="lg:flex-col lg:justify-start mt-6">
           {/* Grid */}
           <div className="max-w-[79rem] mx-auto text-left mb-3 lg:mb-5">
-            <span className="bg-clip-text text-base font-bold md:text-xl md:leading-tight mt-1 bg-gradient-to-tl from-blue to-violet-600 text-transparent">
+            <span className="bg-clip-text text-base font-bold md:text-xl md:leading-tight mt-1 bg-[#2563EB] from-blue to-violet-600 text-transparent">
             AGRICULTURAL ROBOT FOR TOMATO CROP HEALTH MONITORING
             </span>
           </div>
@@ -434,7 +439,7 @@ const LabStudents: React.FC<LabStudentsProps> = ({ title }) => {
         <div className="lg:flex-col lg:justify-start mt-6">
           {/* Grid */}
           <div className="max-w-[79rem] mx-auto text-left mb-3 lg:mb-5">
-            <span className="bg-clip-text text-base font-bold md:text-xl md:leading-tight mt-1 bg-gradient-to-tl from-blue to-violet-600 text-transparent">
+            <span className="bg-clip-text text-base font-bold md:text-xl md:leading-tight mt-1 bg-[#2563EB] from-blue to-violet-600 text-transparent">
             OPTIMIZING PEST CONTROL WITH AUTOMATED BOOM SPRAYERS
             </span>
           </div>
@@ -443,7 +448,7 @@ const LabStudents: React.FC<LabStudentsProps> = ({ title }) => {
         <div className="lg:flex-col lg:justify-start mt-6">
           {/* Grid */}
           <div className="max-w-[79rem] mx-auto text-left mb-3 lg:mb-5">
-            <span className="bg-clip-text text-base font-bold md:text-xl md:leading-tight mt-1 bg-gradient-to-tl from-blue to-violet-600 text-transparent">
+            <span className="bg-clip-text text-base font-bold md:text-xl md:leading-tight mt-1 bg-[#2563EB] from-blue to-violet-600 text-transparent">
             INTELLIATTENDANCE SYSTEM
             </span>
           </div>
@@ -452,7 +457,7 @@ const LabStudents: React.FC<LabStudentsProps> = ({ title }) => {
         <div className="lg:flex-col lg:justify-start mt-6">
           {/* Grid */}
           <div className="max-w-[79rem] mx-auto text-left mb-3 lg:mb-5">
-            <span className="bg-clip-text text-base font-bold md:text-xl md:leading-tight mt-1 bg-gradient-to-tl from-blue to-violet-600 text-transparent">
+            <span className="bg-clip-text text-base font-bold md:text-xl md:leading-tight mt-1 bg-[#2563EB] from-blue to-violet-600 text-transparent">
             CROWD DETECTION
             </span>
           </div>
@@ -461,7 +466,7 @@ const LabStudents: React.FC<LabStudentsProps> = ({ title }) => {
         <div className="lg:flex-col lg:justify-start mt-6">
           {/* Grid */}
           <div className="max-w-[79rem] mx-auto text-left mb-3 lg:mb-5">
-            <span className="bg-clip-text text-base font-bold md:text-xl md:leading-tight mt-1 bg-gradient-to-tl from-blue to-violet-600 text-transparent">
+            <span className="bg-clip-text text-base font-bold md:text-xl md:leading-tight mt-1 bg-[#2563EB] from-blue to-violet-600 text-transparent">
             FACIAL RECOGNITION
             </span>
           </div>
@@ -470,7 +475,7 @@ const LabStudents: React.FC<LabStudentsProps> = ({ title }) => {
         <div className="lg:flex-col lg:justify-start mt-6">
           {/* Grid */}
           <div className="max-w-[79rem] mx-auto text-left mb-3 lg:mb-5">
-            <span className="bg-clip-text text-base font-bold md:text-xl md:leading-tight mt-1 bg-gradient-to-tl from-blue to-violet-600 text-transparent">
+            <span className="bg-clip-text text-base font-bold md:text-xl md:leading-tight mt-1 bg-[#2563EB] from-blue to-violet-600 text-transparent">
             INTERACTIVE WHITEBOARD TRANSFORMATION USING HAND GESTURE RECOGNITION ON JETSON PLATFORMS (XAVIER NX)
             </span>
           </div>
@@ -479,7 +484,7 @@ const LabStudents: React.FC<LabStudentsProps> = ({ title }) => {
         <div className="lg:flex-col lg:justify-start mt-6">
           {/* Grid */}
           <div className="max-w-[79rem] mx-auto text-left mb-3 lg:mb-5">
-            <span className="bg-clip-text text-base font-bold md:text-xl md:leading-tight mt-1 bg-gradient-to-tl from-blue to-violet-600 text-transparent">
+            <span className="bg-clip-text text-base font-bold md:text-xl md:leading-tight mt-1 bg-[#2563EB] from-blue to-violet-600 text-transparent">
             DIABVISION: AUTOMATED MULTI-CLASS DETECTION OF MILD DIABETIC CONDITIONS IN RETINAL OCT IMAGES
             </span>
           </div>
@@ -488,7 +493,7 @@ const LabStudents: React.FC<LabStudentsProps> = ({ title }) => {
         <div className="lg:flex-col lg:justify-start mt-6">
           {/* Grid */}
           <div className="max-w-[79rem] mx-auto text-left mb-3 lg:mb-5">
-            <span className="bg-clip-text text-base font-bold md:text-xl md:leading-tight mt-1 bg-gradient-to-tl from-blue to-violet-600 text-transparent">
+            <span className="bg-clip-text text-base font-bold md:text-xl md:leading-tight mt-1 bg-[#2563EB] from-blue to-violet-600 text-transparent">
             AUTOMATED RO WATER QUALITY PREDICTION SYSTEM
             </span>
           </div>
@@ -497,7 +502,7 @@ const LabStudents: React.FC<LabStudentsProps> = ({ title }) => {
         <div className="lg:flex-col lg:justify-start mt-6">
           {/* Grid */}
           <div className="max-w-[79rem] mx-auto text-left mb-3 lg:mb-5">
-            <span className="bg-clip-text text-base font-bold md:text-xl md:leading-tight mt-1 bg-gradient-to-tl from-blue to-violet-600 text-transparent">
+            <span className="bg-clip-text text-base font-bold md:text-xl md:leading-tight mt-1 bg-[#2563EB] from-blue to-violet-600 text-transparent">
             INVENTORY MANAGEMENT SYSTEM USING OPENCV
             </span>
           </div>
@@ -506,7 +511,7 @@ const LabStudents: React.FC<LabStudentsProps> = ({ title }) => {
         <div className="lg:flex-col lg:justify-start mt-6">
           {/* Grid */}
           <div className="max-w-[79rem] mx-auto text-left mb-3 lg:mb-5">
-            <span className="bg-clip-text text-base font-bold md:text-xl md:leading-tight mt-1 bg-gradient-to-tl from-blue to-violet-600 text-transparent">
+            <span className="bg-clip-text text-base font-bold md:text-xl md:leading-tight mt-1 bg-[#2563EB] from-blue to-violet-600 text-transparent">
             HUMAN DETECTION IN SYNERGY WITH OSCC DETECTION
             </span>
           </div>

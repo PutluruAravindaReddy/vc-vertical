@@ -46,11 +46,11 @@ export const metadata :Metadata= {
 
 export default function Members(){
     return(
-        <>
+        <div className='dark:bg-black'>
         <NavBar/>
         <LabFaculty/>
         <LabStudents title=''/>
         <Footer/>
-        </>
+        </div>
     )
 }
